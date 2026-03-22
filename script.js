@@ -265,3 +265,157 @@ function showError(message) {
 if (window.location.pathname.includes('author.html')) {
     document.addEventListener('DOMContentLoaded', loadAuthorDetail);
 }
+
+// Load book detail page
+async function loadBookDetail() {
+    const slug = getUrlParameter('slug');
+    
+    if (!slug) {
+        showBookError('No book specified');
+        return;
+    }
+    
+    try {
+        const response = await fetch('data.json');
+        if (!response.ok) {
+            throw new Error('Failed to load book data');
+        }
+        const data = await response.json();
+        
+        // Find the author and book
+        let foundAuthor = null;
+        let foundBook = null;
+        
+        for (const author of data.authors) {
+            const book = author.books.find(b => b.slug === slug);
+            if (book) {
+                foundAuthor = author;
+                foundBook = book;
+                break;
+            }
+        }
+        
+        if (!foundBook || !foundAuthor) {
+            showBookError('Book not found');
+            return;
+        }
+        
+        displayBookDetail(foundBook, foundAuthor, data.authors);
+    } catch (error) {
+        console.error('Error loading book:', error);
+        showBookError('Unable to load book details. Please try again.');
+    }
+}
+
+// Display book detail
+function displayBookDetail(book, author, allAuthors) {
+    const container = document.getElementById('bookContent');
+    if (!container) return;
+    
+    // Get other books by same author (excluding current book)
+    const otherBooks = author.books.filter(b => b.id !== book.id);
+    
+    const bookHTML = `
+        <div class="book-detail">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="separator">/</span>
+                <a href="author.html?slug=${encodeURIComponent(author.slug)}">${escapeHtml(author.name)}</a>
+                <span class="separator">/</span>
+                <span class="current">${escapeHtml(book.title)}</span>
+            </div>
+            
+            <div class="book-two-columns">
+                <div class="book-cover">
+                    <img src="${book.coverUrl || 'images/placeholder.png'}" 
+                         alt="${escapeHtml(book.title)}"
+                         onerror="this.parentElement.innerHTML='<div class=\\'cover-placeholder\\'><i class=\\'fas fa-book\\'></i></div>'">
+                </div>
+                <div class="book-info-detail">
+                    <h1 class="book-title-large">${escapeHtml(book.title)}</h1>
+                    <a href="author.html?slug=${encodeURIComponent(author.slug)}" class="book-author-link">
+                        <i class="fas fa-user"></i> ${escapeHtml(author.name)}
+                    </a>
+                    
+                    <div class="book-meta-grid">
+                        <div class="meta-row">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span class="meta-label">Published:</span>
+                            <span class="meta-value">${book.year}</span>
+                        </div>
+                        <div class="meta-row">
+                            <i class="fas fa-book-open"></i>
+                            <span class="meta-label">Pages:</span>
+                            <span class="meta-value">${book.pages}</span>
+                        </div>
+                        <div class="meta-row">
+                            <i class="fas fa-tag"></i>
+                            <span class="meta-label">Genre:</span>
+                            <span class="meta-value">${escapeHtml(book.genre)}</span>
+                        </div>
+                        <div class="meta-row">
+                            <i class="fas fa-building"></i>
+                            <span class="meta-label">Publisher:</span>
+                            <span class="meta-value">${escapeHtml(book.publisher)}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="book-description">
+                        ${escapeHtml(book.description)}
+                    </div>
+                    
+                    <div class="author-bio-snippet">
+                        <h3>About ${escapeHtml(author.name)}</h3>
+                        <p>${escapeHtml(author.bio.substring(0, 200))}${author.bio.length > 200 ? '...' : ''}</p>
+                        <a href="author.html?slug=${encodeURIComponent(author.slug)}" class="read-more-link">
+                            Read more about ${escapeHtml(author.name)} <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            ${otherBooks.length > 0 ? `
+                <div class="other-books-section">
+                    <h2>Other Books by ${escapeHtml(author.name)}</h2>
+                    <div class="other-books-grid">
+                        ${otherBooks.map(otherBook => `
+                            <a href="book.html?slug=${encodeURIComponent(otherBook.slug)}" class="book-card">
+                                <div class="book-image">
+                                    <img src="${otherBook.coverUrl || 'images/placeholder.png'}" 
+                                         alt="${escapeHtml(otherBook.title)}"
+                                         onerror="this.parentElement.innerHTML='<div class=\\'book-placeholder\\'><i class=\\'fas fa-book\\'></i></div>'">
+                                </div>
+                                <div class="book-info">
+                                    <div class="book-title">${escapeHtml(otherBook.title)}</div>
+                                    <div class="book-year">${otherBook.year}</div>
+                                    ${otherBook.genre ? `<div class="book-genre">${escapeHtml(otherBook.genre)}</div>` : ''}
+                                </div>
+                            </a>
+                        `).join('')}
+                    </div>
+                </div>
+            ` : ''}
+        </div>
+    `;
+    
+    container.innerHTML = bookHTML;
+}
+
+// Show book error message
+function showBookError(message) {
+    const container = document.getElementById('bookContent');
+    if (container) {
+        container.innerHTML = `
+            <div class="error-state">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>${escapeHtml(message)}</p>
+                <a href="index.html">← Return to homepage</a>
+            </div>
+        `;
+    }
+}
+
+// Check if we're on the book detail page
+if (window.location.pathname.includes('book.html')) {
+    document.addEventListener('DOMContentLoaded', loadBookDetail);
+}
