@@ -23,7 +23,8 @@
           "pages": 412,
           "genre": "Literary Fiction",
           "publisher": "Berhanena Selam Printing Press",
-          "coverUrl": "images/placeholder.png"
+          "coverUrl": "images/placeholder.png",
+          "series": null
         },
         {
           "id": 102,
@@ -34,7 +35,8 @@
           "pages": 188,
           "genre": "Essays",
           "publisher": "Artistic Printing Press",
-          "coverUrl": "images/placeholder.png"
+          "coverUrl": "images/placeholder.png",
+          "series": null
         }
       ]
     },
@@ -62,7 +64,8 @@
           "pages": 448,
           "genre": "Historical Fiction",
           "publisher": "W. W. Norton & Company",
-          "coverUrl": "images/placeholder.png"
+          "coverUrl": "images/placeholder.png",
+          "series": null
         },
         {
           "id": 202,
@@ -73,7 +76,8 @@
           "pages": 320,
           "genre": "Historical Fiction",
           "publisher": "W. W. Norton & Company",
-          "coverUrl": "images/placeholder.png"
+          "coverUrl": "images/placeholder.png",
+          "series": null
         }
       ]
     },
@@ -100,7 +104,8 @@
           "pages": 288,
           "genre": "Literary Fiction",
           "publisher": "Riverhead Books",
-          "coverUrl": "images/placeholder.png"
+          "coverUrl": "images/placeholder.png",
+          "series": null
         },
         {
           "id": 302,
@@ -111,7 +116,8 @@
           "pages": 320,
           "genre": "Literary Fiction",
           "publisher": "Riverhead Books",
-          "coverUrl": "images/placeholder.png"
+          "coverUrl": "images/placeholder.png",
+          "series": null
         }
       ]
     },
@@ -138,7 +144,8 @@
           "pages": 368,
           "genre": "Contemporary Fiction",
           "publisher": "Chatto & Windus",
-          "coverUrl": "images/placeholder.png"
+          "coverUrl": "images/placeholder.png",
+          "series": null
         },
         {
           "id": 402,
@@ -149,7 +156,8 @@
           "pages": 400,
           "genre": "Contemporary Fiction",
           "publisher": "Indigo Press",
-          "coverUrl": "images/placeholder.png"
+          "coverUrl": "images/placeholder.png",
+          "series": null
         }
       ]
     },
@@ -175,7 +183,8 @@
           "pages": 256,
           "genre": "Literary Fiction",
           "publisher": "Addis Ababa University Press",
-          "coverUrl": "images/placeholder.png"
+          "coverUrl": "images/placeholder.png",
+          "series": null
         },
         {
           "id": 502,
@@ -186,7 +195,8 @@
           "pages": 192,
           "genre": "Short Stories",
           "publisher": "Artistic Printing Press",
-          "coverUrl": "images/placeholder.png"
+          "coverUrl": "images/placeholder.png",
+          "series": null
         }
       ]
     },
@@ -212,7 +222,8 @@
           "pages": 350,
           "genre": "Political Fiction",
           "publisher": "Berhanena Selam Printing Press",
-          "coverUrl": "images/placeholder.png"
+          "coverUrl": "images/placeholder.png",
+          "series": null
         },
         {
           "id": 602,
@@ -223,7 +234,8 @@
           "pages": 280,
           "genre": "Literary Fiction",
           "publisher": "Artistic Printing Press",
-          "coverUrl": "images/placeholder.png"
+          "coverUrl": "images/placeholder.png",
+          "series": null
         }
       ]
     },
@@ -250,7 +262,8 @@
           "pages": 352,
           "genre": "Memoir",
           "publisher": "Picador",
-          "coverUrl": "images/placeholder.png"
+          "coverUrl": "images/placeholder.png",
+          "series": null
         },
         {
           "id": 702,
@@ -261,31 +274,71 @@
           "pages": 304,
           "genre": "Historical Fiction",
           "publisher": "Picador",
-          "coverUrl": "images/placeholder.png"
+          "coverUrl": "images/placeholder.png",
+          "series": null
         }
       ]
     },
     {
       "id": 8,
-      "name": "Mihret Kebede",
-      "birthYear": 1980,
+      "name": "Azerg",
+      "birthYear": 1965,
       "deathYear": null,
-      "slug": "mihret-kebede",
+      "slug": "azerg",
       "imageUrl": "images/placeholder.png",
-      "bio": "Contemporary Ethiopian novelist writing in Amharic, known for exploring urban life and the experiences of young Ethiopians in Addis Ababa.",
-      "externalLinks": {},
-      "featuredBook": 801,
+      "bio": "A contemporary Ethiopian author known for creating engaging series that explore Ethiopian culture, society, and human relationships through compelling narratives.",
+      "externalLinks": {
+        "goodreads": "https://www.goodreads.com/author/show/123456.Azerg"
+      },
+      "featuredBook": 803,
       "books": [
         {
           "id": 801,
-          "title": "Ye Addis Ababa Sew",
-          "year": 2015,
-          "slug": "ye-addis-ababa-sew",
-          "description": "A novel exploring the lives of young professionals navigating love, ambition, and tradition in modern Addis Ababa.",
+          "title": "Eyariko 1: The Beginning",
+          "year": 2012,
+          "slug": "eyariko-1",
+          "description": "The first installment in the beloved Eyariko series. Follow the journey of characters navigating love, family, and tradition in modern Ethiopia.",
+          "pages": 320,
+          "genre": "Contemporary Fiction",
+          "publisher": "Addis Ababa University Press",
+          "coverUrl": "images/placeholder.png",
+          "series": "Eyariko Series"
+        },
+        {
+          "id": 802,
+          "title": "Eyariko 2: The Journey",
+          "year": 2014,
+          "slug": "eyariko-2",
+          "description": "The second book in the Eyariko series continues the story as characters face new challenges and discover deeper truths about themselves.",
+          "pages": 348,
+          "genre": "Contemporary Fiction",
+          "publisher": "Addis Ababa University Press",
+          "coverUrl": "images/placeholder.png",
+          "series": "Eyariko Series"
+        },
+        {
+          "id": 803,
+          "title": "Eyariko 3: The Resolution",
+          "year": 2016,
+          "slug": "eyariko-3",
+          "description": "The captivating conclusion to the Eyariko trilogy. All threads come together in this satisfying finale to the beloved series.",
+          "pages": 376,
+          "genre": "Contemporary Fiction",
+          "publisher": "Addis Ababa University Press",
+          "coverUrl": "images/placeholder.png",
+          "series": "Eyariko Series"
+        },
+        {
+          "id": 804,
+          "title": "Eyariko: Legacy",
+          "year": 2019,
+          "slug": "eyariko-legacy",
+          "description": "A companion novel exploring what happens after the main trilogy, following the next generation.",
           "pages": 290,
           "genre": "Contemporary Fiction",
           "publisher": "Addis Ababa University Press",
-          "coverUrl": "images/placeholder.png"
+          "coverUrl": "images/placeholder.png",
+          "series": "Eyariko Series"
         }
       ]
     }

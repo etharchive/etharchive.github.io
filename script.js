@@ -267,6 +267,7 @@ function displayAuthorDetail(author, allAuthors) {
                                 <div class="book-title">${escapeHtml(book.title)}</div>
                                 <div class="book-year">${book.year}</div>
                                 ${book.genre ? `<div class="book-genre">${escapeHtml(book.genre)}</div>` : ''}
+                                ${book.series ? `<div class="book-series">${escapeHtml(book.series)}</div>` : ''}
                             </div>
                         </a>
                     `).join('')}
@@ -374,6 +375,9 @@ function displayBookDetail(book, author, allAuthors) {
         .filter(b => b.id !== book.id)
         .sort((a, b) => a.title.localeCompare(b.title));
     
+    // Find other books in the same series
+    const seriesBooks = book.series ? author.books.filter(b => b.series === book.series && b.id !== book.id) : [];
+    
     const bookHTML = `
         <div class="book-detail">
             <div class="breadcrumb">
@@ -395,6 +399,12 @@ function displayBookDetail(book, author, allAuthors) {
                     <a href="author.html?slug=${encodeURIComponent(author.slug)}" class="book-author-link">
                         <i class="fas fa-user"></i> ${escapeHtml(author.name)}
                     </a>
+                    
+                    ${book.series ? `
+                        <div class="book-series-large">
+                            <i class="fas fa-layer-group"></i> ${escapeHtml(book.series)}
+                        </div>
+                    ` : ''}
                     
                     <div class="book-meta-grid">
                         <div class="meta-row">
@@ -423,6 +433,15 @@ function displayBookDetail(book, author, allAuthors) {
                         ${escapeHtml(book.description)}
                     </div>
                     
+                    ${seriesBooks.length > 0 ? `
+                        <div class="series-info">
+                            <p><i class="fas fa-layer-group"></i> Part of the <strong>${escapeHtml(book.series)}</strong> series</p>
+                            <a href="#other-books" class="series-books-link" onclick="document.querySelector('.other-books-section').scrollIntoView({behavior: 'smooth'}); return false;">
+                                Explore other books in this series (${seriesBooks.length} more) <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    ` : ''}
+                    
                     <div class="author-bio-snippet">
                         <h3>About ${escapeHtml(author.name)}</h3>
                         <p>${escapeHtml(author.bio.substring(0, 200))}${author.bio.length > 200 ? '...' : ''}</p>
@@ -434,7 +453,7 @@ function displayBookDetail(book, author, allAuthors) {
             </div>
             
             ${otherBooks.length > 0 ? `
-                <div class="other-books-section">
+                <div class="other-books-section" id="other-books">
                     <h2>Other Books by ${escapeHtml(author.name)}</h2>
                     <div class="other-books-grid">
                         ${otherBooks.map(otherBook => `
@@ -448,6 +467,7 @@ function displayBookDetail(book, author, allAuthors) {
                                     <div class="book-title">${escapeHtml(otherBook.title)}</div>
                                     <div class="book-year">${otherBook.year}</div>
                                     ${otherBook.genre ? `<div class="book-genre">${escapeHtml(otherBook.genre)}</div>` : ''}
+                                    ${otherBook.series ? `<div class="book-series">${escapeHtml(otherBook.series)}</div>` : ''}
                                 </div>
                             </a>
                         `).join('')}
