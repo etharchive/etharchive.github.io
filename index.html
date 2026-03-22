@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethiopian Literary Archive | Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Ethiopian Literary Archive</h1>
+            <p class="subtitle">Celebrating the voices of Ethiopian writers through generations</p>
+        </header>
+
+        <div class="search-section">
+            <div class="search-wrapper">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="10" cy="10" r="7"></circle>
+                    <line x1="21" y1="21" x2="15" y2="15"></line>
+                </svg>
+                <input type="text" id="searchInput" placeholder="Search authors by name..." class="search-input">
+            </div>
+            <div class="search-info">
+                <span id="resultCount"></span>
+            </div>
+        </div>
+
+        <div class="authors-grid" id="authorsGrid">
+            <!-- Authors will be dynamically inserted here -->
+            <div class="loading">Loading authors...</div>
+        </div>
+
+        <footer>
+            <p>© 2024 Ethiopian Literary Archive — Preserving literary heritage</p>
+        </footer>
+    </div>
+
+    <script src="data.json" type="application/json" id="authorsData"></script>
+    <script src="script.js"></script>
+</body>
+</html>

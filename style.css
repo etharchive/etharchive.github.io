@@ -1,0 +1,276 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #E8E0D5;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #2C2C2C;
+    line-height: 1.5;
+    padding: 2rem 1rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #FDF8F0;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+/* Header Styles */
+header {
+    padding: 3rem 2rem 2rem;
+    border-bottom: 1px solid #E8E0D5;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    color: #2C2C2C;
+    margin-bottom: 0.75rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #6B5E4A;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+}
+
+/* Search Section */
+.search-section {
+    padding: 2rem 2rem 1rem;
+    border-bottom: 1px solid #E8E0D5;
+}
+
+.search-wrapper {
+    position: relative;
+    margin-bottom: 0.75rem;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #A69B8A;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 2.75rem;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: #FFFFFF;
+    border: 1px solid #E8E0D5;
+    border-radius: 8px;
+    color: #2C2C2C;
+    transition: all 0.2s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #C17B5E;
+    box-shadow: 0 0 0 3px rgba(193, 123, 94, 0.1);
+}
+
+.search-input::placeholder {
+    color: #B8AD9A;
+}
+
+.search-info {
+    font-size: 0.875rem;
+    color: #6B5E4A;
+    text-align: right;
+}
+
+/* Authors Grid */
+.authors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    color: #6B5E4A;
+    font-style: italic;
+}
+
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    color: #6B5E4A;
+    font-style: italic;
+    background: #F9F6F0;
+    border-radius: 8px;
+}
+
+/* Author Card */
+.author-card {
+    background: #FFFFFF;
+    border: 1px solid #E8E0D5;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.author-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+    border-color: #D4CABC;
+}
+
+.author-image {
+    width: 100%;
+    height: 240px;
+    background-color: #F5F0E8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.author-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.placeholder-img {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #E8E0D5 0%, #D4CABC 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9B8E7A;
+    font-size: 3rem;
+}
+
+.author-info {
+    padding: 1.5rem;
+}
+
+.author-name {
+    font-size: 1.35rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #2C2C2C;
+    letter-spacing: -0.2px;
+}
+
+.author-years {
+    font-size: 0.875rem;
+    color: #9B8E7A;
+    margin-bottom: 0.75rem;
+    font-feature-settings: 'tnum';
+}
+
+.author-books {
+    font-size: 0.875rem;
+    color: #C17B5E;
+    display: inline-block;
+    padding-top: 0.5rem;
+    border-top: 1px solid #F0E9E0;
+    margin-top: 0.5rem;
+}
+
+/* Footer */
+footer {
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid #E8E0D5;
+    font-size: 0.8125rem;
+    color: #9B8E7A;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    
+    header {
+        padding: 2rem 1.5rem 1.5rem;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    .search-section {
+        padding: 1.5rem 1.5rem 1rem;
+    }
+    
+    .authors-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    .author-image {
+        height: 200px;
+    }
+    
+    .author-info {
+        padding: 1.25rem;
+    }
+    
+    .author-name {
+        font-size: 1.2rem;
+    }
+    
+    footer {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .authors-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+    
+    .search-input {
+        font-size: 0.9375rem;
+    }
+}
+
+/* Smooth transitions */
+.author-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.2s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F0E9E0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #C4B7A4;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #A69B8A;
+}
