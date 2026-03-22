@@ -8,6 +8,11 @@
       "slug": "haddis-alemayehu",
       "imageUrl": "images/placeholder.png",
       "bio": "One of Ethiopia's most celebrated novelists and diplomats, best known for his masterpiece 'Love to the Grave' (Fikir Eske Mekabir). His work explores the complexities of Ethiopian society, love, and tradition.",
+      "externalLinks": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Haddis_Alemayehu",
+        "goodreads": "https://www.goodreads.com/author/show/123456.Haddis_Alemayehu"
+      },
+      "featuredBook": 101,
       "books": [
         {
           "id": 101,
@@ -41,6 +46,12 @@
       "slug": "maaza-mengiste",
       "imageUrl": "images/placeholder.png",
       "bio": "A contemporary Ethiopian-American writer whose work explores themes of war, memory, and identity. Her novel 'The Shadow King' was shortlisted for the Booker Prize and named one of the best books of the year by The New York Times.",
+      "externalLinks": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Maaza_Mengiste",
+        "goodreads": "https://www.goodreads.com/author/show/123456.Maaza_Mengiste",
+        "personal": "https://www.maazamengiste.com/"
+      },
+      "featuredBook": 201,
       "books": [
         {
           "id": 201,
@@ -74,6 +85,11 @@
       "slug": "dinaw-mengestu",
       "imageUrl": "images/placeholder.png",
       "bio": "Ethiopian-American novelist and recipient of a MacArthur Fellowship. His work often explores the immigrant experience, memory, and the search for identity across generations.",
+      "externalLinks": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Dinaw_Mengestu",
+        "goodreads": "https://www.goodreads.com/author/show/123456.Dinaw_Mengestu"
+      },
+      "featuredBook": 301,
       "books": [
         {
           "id": 301,
@@ -107,6 +123,11 @@
       "slug": "sulaiman-addonia",
       "imageUrl": "images/placeholder.png",
       "bio": "A writer born in Eritrea but raised in Ethiopia and later in Europe. His novels explore themes of love, migration, and identity with lyrical intensity.",
+      "externalLinks": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Sulaiman_Addonia",
+        "goodreads": "https://www.goodreads.com/author/show/123456.Sulaiman_Addonia"
+      },
+      "featuredBook": 402,
       "books": [
         {
           "id": 401,
@@ -140,6 +161,10 @@
       "slug": "lemlem-seged",
       "imageUrl": "images/placeholder.png",
       "bio": "A pioneering Ethiopian novelist and journalist who wrote extensively about women's lives, social change, and the complexities of modern Ethiopian society.",
+      "externalLinks": {
+        "goodreads": "https://www.goodreads.com/author/show/123456.Lemlem_Seged"
+      },
+      "featuredBook": 501,
       "books": [
         {
           "id": 501,
@@ -173,6 +198,10 @@
       "slug": "bealu-girma",
       "imageUrl": "images/placeholder.png",
       "bio": "A prolific Ethiopian novelist and journalist known for his critical examination of Ethiopian society and politics. His mysterious death remains a subject of discussion.",
+      "externalLinks": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Bealu_Girma"
+      },
+      "featuredBook": 601,
       "books": [
         {
           "id": 601,
@@ -206,6 +235,11 @@
       "slug": "nega-mezlekia",
       "imageUrl": "images/placeholder.png",
       "bio": "Ethiopian-Canadian writer whose memoir won the Governor General's Award. His work blends memoir and fiction to explore Ethiopian history.",
+      "externalLinks": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Nega_Mezlekia",
+        "goodreads": "https://www.goodreads.com/author/show/123456.Nega_Mezlekia"
+      },
+      "featuredBook": 701,
       "books": [
         {
           "id": 701,
@@ -239,6 +273,8 @@
       "slug": "mihret-kebede",
       "imageUrl": "images/placeholder.png",
       "bio": "Contemporary Ethiopian novelist writing in Amharic, known for exploring urban life and the experiences of young Ethiopians in Addis Ababa.",
+      "externalLinks": {},
+      "featuredBook": 801,
       "books": [
         {
           "id": 801,

@@ -1,3 +1,4 @@
+
 // Global variables
 let authorsData = [];
 let currentFilter = '';
@@ -169,13 +170,57 @@ function displayAuthorDetail(author, allAuthors) {
     const bookCount = author.books ? author.books.length : 0;
     const bookCountText = bookCount === 1 ? '1 Book' : `${bookCount} Books`;
     
+    // Sort books alphabetically by title
     const sortedBooks = [...author.books].sort((a, b) => a.title.localeCompare(b.title));
+    
+    // Find featured book
+    const featuredBook = author.books.find(book => book.id === author.featuredBook);
     
     // Get related authors (random 4 authors excluding current)
     const relatedAuthors = allAuthors
         .filter(a => a.id !== author.id)
         .sort(() => 0.5 - Math.random())
         .slice(0, 4);
+    
+    // Generate external links HTML
+    const externalLinksHTML = author.externalLinks && Object.keys(author.externalLinks).length > 0 ? `
+        <div class="external-links">
+            <h3>Learn More</h3>
+            <div class="links-container">
+                ${author.externalLinks.wikipedia ? `
+                    <a href="${author.externalLinks.wikipedia}" target="_blank" rel="noopener noreferrer" class="external-link">
+                        <i class="fab fa-wikipedia-w"></i> Wikipedia
+                    </a>
+                ` : ''}
+                ${author.externalLinks.goodreads ? `
+                    <a href="${author.externalLinks.goodreads}" target="_blank" rel="noopener noreferrer" class="external-link">
+                        <i class="fab fa-goodreads-g"></i> Goodreads
+                    </a>
+                ` : ''}
+                ${author.externalLinks.personal ? `
+                    <a href="${author.externalLinks.personal}" target="_blank" rel="noopener noreferrer" class="external-link">
+                        <i class="fas fa-globe"></i> Official Website
+                    </a>
+                ` : ''}
+            </div>
+        </div>
+    ` : '';
+    
+    // Generate featured book HTML
+    const featuredBookHTML = featuredBook ? `
+        <div class="featured-book">
+            <div class="featured-label">
+                <i class="fas fa-star"></i> Featured Work
+            </div>
+            <h4>${escapeHtml(featuredBook.title)} (${featuredBook.year})</h4>
+            <p style="font-family: 'Inter', sans-serif; font-size: 0.85rem; color: #6A4E2E; margin-bottom: 0.5rem;">
+                ${escapeHtml(featuredBook.genre)}
+            </p>
+            <a href="book.html?slug=${encodeURIComponent(featuredBook.slug)}" class="featured-book-link">
+                Explore this book <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    ` : '';
     
     const authorHTML = `
         <div class="author-detail">
@@ -204,6 +249,8 @@ function displayAuthorDetail(author, allAuthors) {
                     <div class="author-bio">
                         ${escapeHtml(author.bio)}
                     </div>
+                    ${externalLinksHTML}
+                    ${featuredBookHTML}
                 </div>
             </div>
             
