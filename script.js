@@ -1,4 +1,3 @@
-
 // Global variables
 let authorsData = [];
 let currentFilter = '';
