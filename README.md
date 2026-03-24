@@ -69,7 +69,7 @@ Edit `data.json` and add a new author object:
   "birthYear": 1970,
   "deathYear": null,
   "slug": "author-name",
-  "imageUrl": "images/author-name.jpg",
+  "imageUrl": "images/author-name.webp",
   "bio": "Author biography...",
   "externalLinks": {
     "wikipedia": "https://en.wikipedia.org/wiki/Author",
@@ -87,12 +87,14 @@ Edit `data.json` and add a new author object:
       "pages": 300,
       "genre": "Literary Fiction",
       "publisher": "Publisher Name",
-      "coverUrl": "images/book-cover.jpg",
+      "coverUrl": "images/book-cover.webp",
       "series": null
     }
   ]
 }
 ```
+
+> Note: Always use webp for images
 
 ## License
 
