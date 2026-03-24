@@ -45,9 +45,21 @@
           "slug": "yelimzhat",
           "description": "The main character of this \"Yelm Zhat\" book is a beautiful woman named Demekech Tsehay. Haddis shows us how this beautiful character was forced from the countryside and came to our capital, Addis Ababa, what kind of difficult life she lives in, and how she manages to earn a living by educating her only child (at the Teferi Mekonnen School).",
           "pages": 469,
-          "genre": "Literary Fiction",
+          "genre": "Novel",
           "publisher": "Kuraz Publishing Agency",
           "coverUrl": "images/books/yelimzhat.webp",
+          "series": null
+        },
+        {
+          "id": 104,
+          "title": "Wenjelegnaw Dagna (The Criminal Judge)",
+          "year": 1981,
+          "slug": "wenjelegnaw-dagna",
+          "description": "\"Whether I started Wenjelegnaw Dagna as a play or finished it as a novel, my real goal was to portray the problems facing the Ethiopian working class of the time and the generation that is graduating from modern schools in that working class, as I saw them, in words. Whether I have achieved this goal or not, the readers are the judges.\" -The Author",
+          "pages": 588,
+          "genre": "Novel",
+          "publisher": "nəgd Printing Press (Kuraz Publishing Agency)",
+          "coverUrl": "images/books/wenjelegnaw-dagna.webp",
           "series": null
         }
       ]
