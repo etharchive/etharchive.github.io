@@ -73,6 +73,18 @@
           "publisher": "Not Found",
           "coverUrl": "images/books/teret-teret-yemeseret.webp",
           "series": null
+        },
+        {
+          "id": 106,
+          "title": "Ethiopia mn aynet astedader yasfeligatal?",
+          "year": 1961,
+          "slug": "ethiopia-mn-aynet-astedader-yasfeligatal",
+          "description": "Taking the December 1953 uprising, which was considered unprecedented in Ethiopia, as a starting point, he explained that the existing administrative system in Ethiopia before the coup was no longer viable, and he justified the need for change, but he also analyzed in detail how the change would benefit our country and its people. \"What Kind of Administration Does Ethiopia Need\" (1958)",
+          "pages": 85,
+          "genre": "Political",
+          "publisher": "Birana Matemiya Bet",
+          "coverUrl": "images/books/ethiopia-mn-aynet-astedader-yasfeligatal.webp",
+          "series": null
         }
       ]
     }
