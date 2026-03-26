@@ -85,6 +85,30 @@
           "publisher": "Birana Matemiya Bet",
           "coverUrl": "images/books/ethiopia-mn-aynet-astedader-yasfeligatal.webp",
           "series": null
+        },
+        {
+          "id": 107,
+          "title": "Yetmirt ena yetemari bet tirgum",
+          "year": 1954,
+          "slug": "yetmirt-ena-yetemari-bet-tirgum",
+          "description": "",
+          "pages": 0,
+          "genre": "",
+          "publisher": "",
+          "coverUrl": "images/books/yetmirt-ena-yetemari-bet-tirgum.webp",
+          "series": null
+        },
+        {
+          "id": 108,
+          "title": "Yeabesha ena Yewedehuala gabicha",
+          "year": 0,
+          "slug": "",
+          "description": "yeabesha-ena-yewedehuala-gabicha",
+          "pages": 0,
+          "genre": "Theatre Play",
+          "publisher": "",
+          "coverUrl": "images/books/yeabesha-ena-yewedehuala-gabicha.webp",
+          "series": null
         }
       ]
     }
