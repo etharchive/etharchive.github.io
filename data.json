@@ -111,6 +111,195 @@
           "series": null
         }
       ]
+    },
+    {
+      "id": 2,
+      "name": "Adam Reta",
+      "birthYear": 1958,
+      "deathYear": null,
+      "slug": "adam-reta",
+      "imageUrl": "images/authors/adam-reta.webp",
+      "bio": "Adam Reta was born in Addis Ababa in 1950. He received his first degree in Geography from Addis Ababa University. He also received his second (master's) degree abroad. He writes mostly novels, but he also writes poems. His poems have been published in various magazines at different times. He also has unpublished poems.",
+      "externalLinks": {
+        "wikipedia": "https://am.wikipedia.org/wiki/%E1%8A%A0%E1%8B%B3%E1%88%9D_%E1%88%A8%E1%89%B3",
+        "goodreads": "https://www.goodreads.com/genres/adam-reta"
+      },
+      "featuredBook": 201,
+      "books": [
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Sisay Negusu",
+      "birthYear": 1951,
+      "deathYear": null,
+      "slug": "sisay-negusu",
+      "imageUrl": "images/authors/sisay-negusu.webp",
+      "bio": "An acclaimed Ethiopian fiction writer recognized for his deep emotional storytelling and influence on modern Amharic literature. His works explore themes of love, social change, and personal identity, earning him a lasting place in Ethiopia’s literary culture.",
+      "externalLinks": {
+        "wikipedia": "",
+        "goodreads": ""
+      },
+      "featuredBook": 301,
+      "books": [
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Mehret Debebe",
+      "birthYear": 0,
+      "deathYear": null,
+      "slug": "mehret-debebe",
+      "imageUrl": "images/authors/mehret-debebe.webp",
+      "bio": "Dr. Mihret Debebe is a psychiatrist by profession. He received his medical degree from Addis Ababa University and later went to the United States to complete his psychiatry studies at Saint Louis University. He currently works between the United States and Ethiopia, practicing in both places. In addition to his medical practice, he continues to think, study, and teach about the world of thought and mental transformation. He has published two books so far, in 2005 and 2007, entitled \"Yeteqolefebet Kulf (A Key that got Locked)\" and \"Lela Sew (Other Person)\".",
+      "externalLinks": {
+        "goodreads": "https://www.goodreads.com/author/show/14186115._"
+      },
+      "featuredBook": 401,
+      "books": [
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Tsegaye Gabre-Medhin",
+      "birthYear": 1939,
+      "deathYear": 2006,
+      "slug": "tsegaye-gabre-medhin",
+      "imageUrl": "images/authors/tsegaye-gabre-medhin.webp",
+      "bio": "Bewketu Seyoum is an Ethiopian writer, poet, essayist, and entertainer. Honored as Ethiopian Best Novelist of the Year in 2008 and Best Young Author in 2009, he is widely regarded as one of the leading poets of his generation. He has published six books of stories, poetry novels, and collections of essays in English and his native language Amarhic. He is also well-known for his comedic writing and performing his short sketches.",
+      "externalLinks": {
+        "wikipedia": "http://en.wikipedia.org/wiki/Tsegaye_Gabre-Medhin",
+        "goodreads": "https://www.goodreads.com/author/show/16982936.Tsegaye_Gabre_Medhin"
+      },
+      "featuredBook": 501,
+      "books": [
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Alemayehu Wase",
+      "birthYear": 0,
+      "deathYear": null,
+      "slug": "alemayehu-wase",
+      "imageUrl": "images/authors/alemayehu-wase.webp",
+      "bio": "",
+      "externalLinks": {
+        "goodreads": "https://www.goodreads.com/author/show/14235587._"
+      },
+      "featuredBook": 601,
+      "books": [
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Yismaeke Werku",
+      "birthYear": 0,
+      "deathYear": null,
+      "slug": "yismaeke-werku",
+      "imageUrl": "images/authors/yismaeke-werku.webp",
+      "bio": "Yismaeke Worku is a young Ethiopian author who gained popularity among his readers with his book Dertogada. In addition, Dertogada is the first book in the history of Ethiopian book sales, having been published 10 times in just one year and selling more than 200,000 (two hundred thousand) copies in its first edition. Yismaeke has published fifteen books so far.",
+      "externalLinks": {
+        "wikipedia": "https://am.wikipedia.org/wiki/%E1%8B%AD%E1%88%B5%E1%88%9B%E1%8B%95%E1%8A%A8_%E1%8B%88%E1%88%AD%E1%89%81",
+        "goodreads": "https://www.goodreads.com/author/list/14230636._"
+      },
+      "featuredBook": 701,
+      "books": [
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Baalu Girma",
+      "birthYear": 1939,
+      "deathYear": 1984,
+      "slug": "baalu-girma",
+      "imageUrl": "images/authors/baalu-girma.webp",
+      "bio": "Bealu Girma was an Ethiopian journalist and author known for his criticism of prominent members of the Derg in his book Oromay (\"The End\"). He was a notable journalist during the time of Emperor Haile Selassie I and served in various media positions in the country. Girma also wrote notable works, including Beyond the Horizon, The Bell of Conscience, The Call of the Red Star, and Haddis.",
+      "externalLinks": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Baalu_Girma",
+        "goodreads": "https://www.goodreads.com/author/show/20394897.Baalu_Girma"
+      },
+      "featuredBook": 801,
+      "books": [
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Alemayehu Gelagay",
+      "birthYear": 1960,
+      "deathYear": null,
+      "slug": "alemayehu-gelagay",
+      "imageUrl": "images/authors/alemayehu-gelagay.webp",
+      "bio": "Writer and critic Alemayehu Gelagay was born in 1960 in Arat Kilo. He attended Menelik II Primary and Secondary Schools. He graduated from the Addis Ababa School of Journalism. Alemayehu Gelagay is known for his articles and critiques in various newspapers.",
+      "externalLinks": {
+        "wikipedia": "https://am.wikipedia.org/wiki/%E1%8B%93%E1%88%88%E1%88%9B%E1%8B%A8%E1%88%81_%E1%8C%88%E1%88%8B%E1%8C%8B%E1%8B%AD",
+        "goodreads": "https://www.goodreads.com/author/show/14203430._"
+      },
+      "featuredBook": 901,
+      "books": [
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Endalegeta Kebede",
+      "birthYear": 0,
+      "deathYear": null,
+      "slug": "endalegeta-kebede",
+      "imageUrl": "images/authors/endalegeta-kebede.webp",
+      "bio": "\"Author, poet, game philosopher, journalist, theater expert, all of them come before his name. More than being a captive of \"Birhanu Zereihun\", a nationalist of \"Baalu\",  a witness to the value of \"Sebhat\", I like the name \"Endalegeta Kebede\".\" -Melaku Daniel",
+      "externalLinks": {
+        "wikipedia": "https://am.wikipedia.org/wiki/%E1%8A%A5%E1%8A%95%E1%8B%B3%E1%88%88%E1%8C%8C%E1%89%B3_%E1%8A%A8%E1%89%A0%E1%8B%B0",
+        "goodreads": "https://www.goodreads.com/author/show/14230410._",
+        "personal": "https://endalegetak.blogspot.com/"
+      },
+      "featuredBook": 1001,
+      "books": [
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Tesfaye Gebreab",
+      "birthYear": 1960,
+      "deathYear": 2014,
+      "slug": "tesfaye-gebreab",
+      "imageUrl": "images/authors/tesfaye-gebreab.webp",
+      "bio": "Tesfaye, who is widely known for his literary works, was born and raised on August 22, 1960, to Eritrean parents in the town of Bishoftu, about 40 kilometers east of Addis Ababa. Tesfaye had a great love and passion for literature, and says that he had close relationships with many famous Ethiopian writers since his youth.",
+      "externalLinks": {
+        "goodreads": "https://www.goodreads.com/author/show/14227381._"
+      },
+      "featuredBook": 1101,
+      "books": [
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Alex Abraham",
+      "birthYear": "Unknown",
+      "deathYear": null,
+      "slug": "alex-abraham",
+      "imageUrl": "images/authors/anonymous.webp",
+      "bio": "Alex Abraham is an anonymous contemporary Ethiopian writer and poet known for emotionally rich and culturally grounded storytelling.",
+      "externalLinks": {
+      },
+      "featuredBook": 1201,
+      "books": [
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Bewketu Seyoum",
+      "birthYear": 1980,
+      "deathYear": null,
+      "slug": "bewketu-seyoum",
+      "imageUrl": "images/authors/bewketu-seyoum.webp",
+      "bio": "Bewketu Seyoum is an Ethiopian writer and poet from Debre Markos of Ethiopia. He studied psychology at Addis Ababa University and published his first collection of poems, Nwari Alba Gojowoch (Unmanned Houses) in 2000, a year after graduating. Since then, he has published two further poetry collections and two novels, and has narrated short stories on CD. In 2008, he received the best young writer award of Ethiopia from the President. Some of his poetry has appeared in Modern Poetry in Translation, The Big Green Issue (2008), and Callaloo (2011).",
+      "externalLinks": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Bewketu_Seyoum",
+        "goodreads": "https://www.goodreads.com/author/show/1072321.Bewketu_Seyoum",
+        "personal": "https://www.youtube.com/c/BewketuSeyoumofficial"
+      },
+      "featuredBook": 1301,
+      "books": [
+      ]
     }
   ]
 }
