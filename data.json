@@ -300,6 +300,62 @@
       "featuredBook": 1301,
       "books": [
       ]
+    },
+    {
+      "id": 14,
+      "name": "Azerg",
+      "birthYear": "Unknown",
+      "deathYear": null,
+      "slug": "azerg",
+      "imageUrl": "images/authors/anonymous.webp",
+      "bio": "",
+      "externalLinks": {
+      },
+      "featuredBook": 1401,
+      "books": [
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Henok Haile",
+      "birthYear": 0,
+      "deathYear": null,
+      "slug": "henok-haile",
+      "imageUrl": "images/authors/henok-haile.webp",
+      "bio": "",
+      "externalLinks": {
+      },
+      "featuredBook": 1501,
+      "books": [
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Zenebe Wela",
+      "birthYear": 0,
+      "deathYear": null,
+      "slug": "zenebe-wela",
+      "imageUrl": "images/authors/zenebe-wela.webp",
+      "bio": "",
+      "externalLinks": {
+      },
+      "featuredBook": 1601,
+      "books": [
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Daniel Kibret",
+      "birthYear": 0,
+      "deathYear": null,
+      "slug": "daniel-kibret",
+      "imageUrl": "images/authors/daniel-kibret.webp",
+      "bio": "",
+      "externalLinks": {
+      },
+      "featuredBook": 1701,
+      "books": [
+      ]
     }
   ]
 }
