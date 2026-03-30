@@ -372,7 +372,23 @@
         "wikipedia": "https://am.wikipedia.org/wiki/%E1%8A%A8%E1%89%A0%E1%8B%B0_%E1%88%9A%E1%8A%AB%E1%8A%A4%E1%88%8D",
         "goodreads": "https://www.goodreads.com/author/show/6538582.Kebede_Michael"
       },
-      "featuredBook": 1701,
+      "featuredBook": 1801,
+      "books": [
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Sebhat Gebre-Egziabher",
+      "birthYear": 1936,
+      "deathYear": 2012,
+      "slug": "sebhat-gebre-egziabher",
+      "imageUrl": "images/authors/sebhat-gebre-egziabher.webp",
+      "bio": "An Ethiopian writer from Tigray Region. He is famous for pioneering the naturalist writing style in Amharic. His writing style was not constrained by the traditional Ethiopian writing style nor orthodox syntax. Despite using simple words and seemingly light prose, Sebhat's concepts are highly sophisticated and philosophical.",
+      "externalLinks": {
+        "wikipedia": "https://en.wikipedia.org/wiki/Sebhat_Gebre-Egziabher",
+        "goodreads": "https://www.goodreads.com/author/show/39205129.sebhat_gebregziabher"
+      },
+      "featuredBook": 1901,
       "books": [
       ]
     }
