@@ -137,6 +137,18 @@
           "publisher": "Mahlet Publishers",
           "coverUrl": "images/books/mahlet.webp",
           "series": null
+        },
+        {
+          "id": 202,
+          "title": "Merek",
+          "year": 2014,
+          "slug": "merek",
+          "description": "\"Merek\" is a popular novel written by the famous author Adam Reta and published in 2007 (2014/15). The book reflects Adam Reta's unique writing style and philosophical horizons, and contains the following main points. The book explores the social and political atmosphere during the Ethiopian revolution of the 1960s and 70s. It narrates the life journey of Alazar, his childhood memories, and the tension that prevailed in the aftermath of the revolution. The book analyzes human existence, alienation, and the meaning of life from a \"realist\" perspective.",
+          "pages": 604,
+          "genre": "Literary Fiction",
+          "publisher": "Rohobot",
+          "coverUrl": "images/books/merek.webp",
+          "series": null
         }
       ]
     },
