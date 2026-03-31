@@ -282,7 +282,7 @@
           "slug": "girdosh",
           "description": "",
           "pages": 288,
-          "genre": "",
+          "genre": "Literary Fiction",
           "publisher": "",
           "coverUrl": "images/books/girdosh.webp",
           "series": null
@@ -294,7 +294,7 @@
           "slug": "rekik-ashara",
           "description": "",
           "pages": 396,
-          "genre": "",
+          "genre": "Literary Fiction",
           "publisher": "Artistic Printing Enterprise",
           "coverUrl": "images/books/rekik-ashara.webp",
           "series": null
@@ -306,8 +306,8 @@
           "slug": "tinsae",
           "description": "",
           "pages": 0,
-          "genre": "",
-          "publisher": "",
+          "genre": "Literary Fiction",
+          "publisher": "Artistic Printing Enterprise",
           "coverUrl": "images/books/tinsae.webp",
           "series": null
         },
@@ -318,7 +318,7 @@
           "slug": "yekinat-zer",
           "description": "",
           "pages": 283,
-          "genre": "",
+          "genre": "Literary Fiction",
           "publisher": "",
           "coverUrl": "images/books/yekinat-zer.webp",
           "series": null
@@ -330,7 +330,7 @@
           "slug": "guzow",
           "description": "",
           "pages": 0,
-          "genre": "",
+          "genre": "Novella",
           "publisher": "",
           "coverUrl": "images/books/guzow.webp",
           "series": null
