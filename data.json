@@ -174,6 +174,18 @@
           "publisher": "Rohobot",
           "coverUrl": "images/books/etemete-yelomi-shita.webp",
           "series": null
+        },
+        {
+          "id": 205,
+          "title": "Kesemay Yewerede Firfir",
+          "year": 2009,
+          "slug": "kesemay-yewerede-firfir",
+          "description": "\"Kesemay Yewerede Firfir\" is a collection of 14 short stories written by Adam between 1976 and 1988 E.C. while living in Addis Ababa, Holland, and Canada.",
+          "pages": 284,
+          "genre": "Fiction",
+          "publisher": "Rohobot",
+          "coverUrl": "images/books/kesemay-yewerede-firfir.webp",
+          "series": null
         }
       ]
     },
