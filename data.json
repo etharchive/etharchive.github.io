@@ -234,6 +234,18 @@
           "publisher": "Rohobot",
           "coverUrl": "images/books/af.webp",
           "series": null
+        },
+        {
+          "id": 210,
+          "title": "Himamatna Begena",
+          "year": 2011,
+          "slug": "himamatna-begena",
+          "description": "A collection of short stories made up of 13 stories.",
+          "pages": 240,
+          "genre": "Fiction",
+          "publisher": "Walia Publisher",
+          "coverUrl": "images/books/himamatna-begena.webp",
+          "series": null
         }
       ]
     },
