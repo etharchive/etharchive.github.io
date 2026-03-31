@@ -263,6 +263,18 @@
       },
       "featuredBook": 301,
       "books": [
+        {
+          "id": 301,
+          "title": "Sememen",
+          "year": 1985,
+          "slug": "sememen",
+          "description": "It focuses on university life and a love story.",
+          "pages": 378,
+          "genre": "Literary Fiction",
+          "publisher": "Kuraz Publishing Agency",
+          "coverUrl": "images/books/sememen.webp",
+          "series": null
+        }
       ]
     },
     {
