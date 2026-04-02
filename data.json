@@ -472,6 +472,18 @@
           "publisher": "",
           "coverUrl": "images/books/yekey-kokeb-tri.webp",
           "series": null
+        },
+        {
+          "id": 806,
+          "title": "Derasiw",
+          "year": 0,
+          "slug": "derasiw",
+          "description": "",
+          "pages": 0,
+          "genre": "",
+          "publisher": "",
+          "coverUrl": "images/books/derasiw.webp",
+          "series": null
         }
       ]
     },
