@@ -159,6 +159,18 @@ async function loadAuthorDetail() {
 
 // Display author detail
 function displayAuthorDetail(author, allAuthors) {
+    // Update SEO metadata
+    updatePageMetadata(
+        author.name,
+        `Discover ${author.name}, a celebrated Ethiopian author. ${author.bio.substring(0, 160)}`,
+        `https://ethiopianliteraryarchive.com/author.html?slug=${author.slug}`,
+        author.imageUrl || 'images/placeholder.png',
+        'profile'
+    );
+
+    // Add structured data
+    addAuthorStructuredData(author, author.books);
+
     const container = document.getElementById('authorContent');
     if (!container) return;
     
@@ -367,6 +379,18 @@ async function loadBookDetail() {
 
 // Display book detail
 function displayBookDetail(book, author, allAuthors) {
+    // Update SEO metadata
+    updatePageMetadata(
+        book.title,
+        `${book.title} by ${author.name}. ${book.description.substring(0, 160)}`,
+        `https://ethiopianliteraryarchive.com/book.html?slug=${book.slug}`,
+        book.coverUrl || 'images/placeholder.png',
+        'book'
+    );
+
+    // Add structured data
+    addBookStructuredData(book, author);
+
     const container = document.getElementById('bookContent');
     if (!container) return;
     
@@ -497,4 +521,112 @@ function showBookError(message) {
 // Check if we're on the book detail page
 if (window.location.pathname.includes('book.html')) {
     document.addEventListener('DOMContentLoaded', loadBookDetail);
+}
+
+function updatePageMetadata(title, description, url, image, type = 'website') {
+    // Update title
+    document.title = `Ethiopian Literary Archive | ${title}`;
+    
+    // Update meta description
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+        metaDesc.setAttribute('content', description);
+    }
+    
+    // Update Open Graph title
+    let ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) {
+        ogTitle.setAttribute('content', `Ethiopian Literary Archive | ${title}`);
+    }
+    
+    // Update Open Graph description
+    let ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) {
+        ogDesc.setAttribute('content', description);
+    }
+    
+    // Update Open Graph URL
+    let ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl && url) {
+        ogUrl.setAttribute('content', url);
+    }
+    
+    // Update Open Graph type
+    let ogType = document.querySelector('meta[property="og:type"]');
+    if (ogType) {
+        ogType.setAttribute('content', type);
+    }
+    
+    // Update Twitter title
+    let twitterTitle = document.querySelector('meta[property="twitter:title"]');
+    if (twitterTitle) {
+        twitterTitle.setAttribute('content', `Ethiopian Literary Archive | ${title}`);
+    }
+    
+    // Update Twitter description
+    let twitterDesc = document.querySelector('meta[property="twitter:description"]');
+    if (twitterDesc) {
+        twitterDesc.setAttribute('content', description);
+    }
+    
+    // Update canonical URLP
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical && url) {
+        canonical.setAttribute('href', url);
+    }
+}
+
+function addAuthorStructuredData(author, books) {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": author.name,
+        "birthDate": author.birthYear ? author.birthYear.toString() : undefined,
+        "deathDate": author.deathYear ? author.deathYear.toString() : undefined,
+        "description": author.bio,
+        "works": books.map(book => ({
+            "@type": "Book",
+            "name": book.title,
+            "datePublished": book.year.toString(),
+            "numberOfPages": book.pages,
+            "genre": book.genre
+        }))
+    };
+    
+    // Remove undefined values
+    Object.keys(structuredData).forEach(key => 
+        structuredData[key] === undefined && delete structuredData[key]
+    );
+    
+    script.textContent = JSON.stringify(structuredData, null, 2);
+    document.head.appendChild(script);
+}
+
+function addBookStructuredData(book, author) {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "Book",
+        "name": book.title,
+        "author": {
+            "@type": "Person",
+            "name": author.name
+        },
+        "datePublished": book.year.toString(),
+        "numberOfPages": book.pages,
+        "genre": book.genre,
+        "publisher": {
+            "@type": "Organization",
+            "name": book.publisher
+        },
+        "description": book.description
+    };
+    
+    script.textContent = JSON.stringify(structuredData, null, 2);
+    document.head.appendChild(script);
 }
