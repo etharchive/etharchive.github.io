@@ -685,15 +685,15 @@
           "series": null
         },
         {
-          "id": 2001,
-          "title": "",
-          "year": 0,
-          "slug": "",
-          "description": "",
-          "pages": 0,
-          "genre": "",
-          "publisher": "",
-          "coverUrl": "images/books/.webp",
+          "id": 2002,
+          "title": "beneath the lion's gaze",
+          "year": 2010,
+          "slug": "beneath-the-lions-gaze",
+          "description": "This memorable, heartbreaking story opens in Addis Ababa, Ethiopia, 1974, on the eve of a revolution. Yonas kneels in his mother’s prayer room, pleading to his god for an end to the violence that has wracked his family and country. His father, Hailu, a prominent doctor, has been ordered to report to jail after helping a victim of state-sanctioned torture to die. And Dawit, Hailu’s youngest son, has joined an underground resistance movement―a choice that will lead to more upheaval and bloodshed across a ravaged Ethiopia.",
+          "pages": 308,
+          "genre": "Historical Fiction",
+          "publisher": "W. W. Norton & Company",
+          "coverUrl": "images/books/beneath-the-lions-gaze.webp",
           "series": null
         },
         {
