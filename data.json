@@ -686,7 +686,7 @@
         },
         {
           "id": 2002,
-          "title": "beneath the lion's gaze",
+          "title": "Beneath The Lion's Gaze",
           "year": 2010,
           "slug": "beneath-the-lions-gaze",
           "description": "This memorable, heartbreaking story opens in Addis Ababa, Ethiopia, 1974, on the eve of a revolution. Yonas kneels in his mother’s prayer room, pleading to his god for an end to the violence that has wracked his family and country. His father, Hailu, a prominent doctor, has been ordered to report to jail after helping a victim of state-sanctioned torture to die. And Dawit, Hailu’s youngest son, has joined an underground resistance movement―a choice that will lead to more upheaval and bloodshed across a ravaged Ethiopia.",
@@ -697,7 +697,43 @@
           "series": null
         },
         {
-          "id": 2001,
+          "id": 2003,
+          "title": "Addis Ababa Noir",
+          "year": 2020,
+          "slug": "addis-ababa-noir",
+          "description": "What marks life in Addis Ababa are the starkly different realities coexisting in one place. It’s a growing city taking shape beneath the fraught weight of history, myth, and memory. It is a heady mix. It can also be disorienting, and it is in this space that the stories of Addis Ababa Noir reside . . . These are not gentle stories. They cross into forbidden territories and traverse the damaged terrain of the human heart. The characters in these pages are complicated, worthy of our judgment as much as they somehow manage to elude it. The writers have each discovered their own ways to get us to lean in while forcing us to grit our teeth as we draw closer . . . Despite the varied and distinct voices in these pages, no single book can contain all of the wonderful, intriguing, vexing complexities of Addis Ababa. But what you will read are stories by some of Ethiopia’s most talented writers living in the country and abroad. Each of them considers the many ways that myth and truth and a country’s dark edges come together to create something wholly original—and unsettling.",
+          "pages": 256,
+          "genre": "Short Stories",
+          "publisher": "Akashic Books",
+          "coverUrl": "images/books/addis-ababa-noir.webp",
+          "series": null
+        },
+        {
+          "id": 2003,
+          "title": "",
+          "year": 0,
+          "slug": "",
+          "description": "",
+          "pages": 0,
+          "genre": "",
+          "publisher": "",
+          "coverUrl": "images/books/.webp",
+          "series": null
+        },
+        {
+          "id": 2003,
+          "title": "",
+          "year": 0,
+          "slug": "",
+          "description": "",
+          "pages": 0,
+          "genre": "",
+          "publisher": "",
+          "coverUrl": "images/books/.webp",
+          "series": null
+        },
+        {
+          "id": 2003,
           "title": "",
           "year": 0,
           "slug": "",
