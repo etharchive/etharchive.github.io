@@ -709,15 +709,15 @@
           "series": null
         },
         {
-          "id": 2003,
-          "title": "",
-          "year": 0,
-          "slug": "",
-          "description": "",
-          "pages": 0,
-          "genre": "",
-          "publisher": "",
-          "coverUrl": "images/books/.webp",
+          "id": 2004,
+          "title": "Of Interest to the General Public: About a Coronation Cloak from Ethiopia (Volume 6)",
+          "year": 2026,
+          "slug": "of-interest-to-the-general-public",
+          "description": "A multimedia narration inspired by the journey of an Ethiopian royal mantle to Berlin. The work of Maaza Mengiste draws from voices and stories that have been excluded, from gaps that seem inexplicable, from images, objects, and places that pulse with pasts unresolved. While exploring the African collections at the Ethnological Museum of Berlin, she was struck by an elaborate coronation cloak from Ethiopia on display. Inspired by the history of the 1868 British Expedition to Abyssinia (now Ethiopia) and the burning of the palace fortress at Magdala, Of Interest to the General Public uses photography and words to reimagine the journey of the royal mantle—out of battle, through fire, over mountains, to cross the waters into Berlin.",
+          "pages": 48,
+          "genre": "History",
+          "publisher": "Diaphanes",
+          "coverUrl": "images/books/of-interest-to-the-general-public.webp",
           "series": null
         },
         {
