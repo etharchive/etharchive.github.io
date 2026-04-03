@@ -719,30 +719,6 @@
           "publisher": "Diaphanes",
           "coverUrl": "images/books/of-interest-to-the-general-public.webp",
           "series": null
-        },
-        {
-          "id": 2003,
-          "title": "",
-          "year": 0,
-          "slug": "",
-          "description": "",
-          "pages": 0,
-          "genre": "",
-          "publisher": "",
-          "coverUrl": "images/books/.webp",
-          "series": null
-        },
-        {
-          "id": 2003,
-          "title": "",
-          "year": 0,
-          "slug": "",
-          "description": "",
-          "pages": 0,
-          "genre": "",
-          "publisher": "",
-          "coverUrl": "images/books/.webp",
-          "series": null
         }
       ]
     }
