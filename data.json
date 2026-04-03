@@ -672,6 +672,42 @@
       },
       "featuredBook": 2001,
       "books": [
+        {
+          "id": 2001,
+          "title": "The Shadow King",
+          "year": 2019,
+          "slug": "the-shadow-king",
+          "description": "In 1935, orphaned servant Hirut struggles to adapt to her new household as Ethiopia faces Mussolini’s looming invasion. As the battles begin in earnest, Hirut and other women must care for the wounded. But when Emperor Haile Selassie goes into exile and Ethiopia is about to lose hope, Hirut helps to disguise a gentle peasant as the emperor to keep the fight alive. She becomes his guard, inspiring women to join the war against fascism.",
+          "pages": 448,
+          "genre": "Historical Fiction",
+          "publisher": "W. W. Norton & Company",
+          "coverUrl": "images/books/the-shadow-king.webp",
+          "series": null
+        },
+        {
+          "id": 2001,
+          "title": "",
+          "year": 0,
+          "slug": "",
+          "description": "",
+          "pages": 0,
+          "genre": "",
+          "publisher": "",
+          "coverUrl": "images/books/.webp",
+          "series": null
+        },
+        {
+          "id": 2001,
+          "title": "",
+          "year": 0,
+          "slug": "",
+          "description": "",
+          "pages": 0,
+          "genre": "",
+          "publisher": "",
+          "coverUrl": "images/books/.webp",
+          "series": null
+        }
       ]
     }
   ]
