@@ -613,7 +613,7 @@
           "series": null
         },
         {
-          "id": 1304,
+          "id": 1305,
           "title": "Megbatna Mewtat",
           "year": 0,
           "slug": "megbatna-mewtat",
@@ -622,6 +622,18 @@
           "genre": "",
           "publisher": "",
           "coverUrl": "images/books/megbatna-mewtat.webp",
+          "series": null
+        },
+        {
+          "id": 1306,
+          "title": "In Search of Fat",
+          "year": 0,
+          "slug": "in-search-of-fat",
+          "description": "",
+          "pages": 0,
+          "genre": "",
+          "publisher": "",
+          "coverUrl": "images/books/in-search-of-fat.webp",
           "series": null
         }
       ]
