@@ -564,6 +564,66 @@
       },
       "featuredBook": 1301,
       "books": [
+        {
+          "id": 1301,
+          "title": "Ke'Amen Bashager",
+          "year": 0,
+          "slug": "keamen-bashager",
+          "description": "",
+          "pages": 0,
+          "genre": "",
+          "publisher": "",
+          "coverUrl": "images/books/keamen-bashager.webp",
+          "series": null
+        },
+        {
+          "id": 1302,
+          "title": "YeMaleda Dibab",
+          "year": 0,
+          "slug": "yemaleda-dibab",
+          "description": "",
+          "pages": 0,
+          "genre": "",
+          "publisher": "",
+          "coverUrl": "images/books/yemaleda-dibab.webp",
+          "series": null
+        },
+        {
+          "id": 1303,
+          "title": "Sebseb Getemoch",
+          "year": 0,
+          "slug": "sebseb-getemoch",
+          "description": "",
+          "pages": 0,
+          "genre": "",
+          "publisher": "",
+          "coverUrl": "images/books/sebseb-getemoch.webp",
+          "series": null
+        },
+        {
+          "id": 1304,
+          "title": "Enqilf Ena Edeme",
+          "year": 0,
+          "slug": "enqilf-ena-edeme",
+          "description": "",
+          "pages": 0,
+          "genre": "",
+          "publisher": "",
+          "coverUrl": "images/books/enqilf-ena-edeme.webp",
+          "series": null
+        },
+        {
+          "id": 1304,
+          "title": "Megbatna Mewtat",
+          "year": 0,
+          "slug": "megbatna-mewtat",
+          "description": "",
+          "pages": 0,
+          "genre": "",
+          "publisher": "",
+          "coverUrl": "images/books/megbatna-mewtat.webp",
+          "series": null
+        }
       ]
     },
     {
