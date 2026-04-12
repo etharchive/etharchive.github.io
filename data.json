@@ -350,6 +350,30 @@
       },
       "featuredBook": 401,
       "books": [
+        {
+          "id": 401,
+          "title": "Yetekolefebet Kulf",
+          "year": 0,
+          "slug": "yetekolefebet-kulf",
+          "description": "",
+          "pages": 0,
+          "genre": "",
+          "publisher": "",
+          "coverUrl": "images/books/yetekolefebet-kulf.webp",
+          "series": null
+        },
+        {
+          "id": 402,
+          "title": "Lela Sew",
+          "year": 0,
+          "slug": "lela-sew",
+          "description": "",
+          "pages": 0,
+          "genre": "",
+          "publisher": "",
+          "coverUrl": "images/books/lela-sew.webp",
+          "series": null
+        }
       ]
     },
     {
