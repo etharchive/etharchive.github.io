@@ -3,107 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Primary Meta Tags -->
     <title>Ethiopian Literary Archive | Discover Ethiopian Authors & Books</title>
-    <meta name="title" content="Ethiopian Literary Archive | Discover Ethiopian Authors & Books">
-    <meta name="description" content="Explore the rich literary heritage of Ethiopia. Discover celebrated Ethiopian authors, their books, and literary works from Haddis Alemayehu to contemporary writers.">
-    <meta name="keywords" content="Ethiopian authors, Ethiopian books, Ethiopian literature, Ethiopian writers, African literature, Amharic books, Ethiopian novels, Haddis Alemayehu, Maaza Mengiste, Dinaw Mengestu">
+    <meta name="description" content="Explore the rich literary heritage of Ethiopia. Discover celebrated Ethiopian authors, their books, and literary works.">
+    <meta name="keywords" content="Ethiopian authors, Ethiopian books, Ethiopian literature, Ethiopian writers, African literature, Amharic books">
     <meta name="author" content="Ethiopian Literary Archive">
     <meta name="robots" content="index, follow">
-    <meta name="language" content="English">
-    <meta name="revisit-after" content="7 days">
-    
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://etharchive.github.io/">
-    <meta property="og:title" content="Ethiopian Literary Archive | Discover Ethiopian Authors & Books">
-    <meta property="og:description" content="Explore the rich literary heritage of Ethiopia. Discover celebrated Ethiopian authors, their books, and literary works.">
+    <meta property="og:title" content="Ethiopian Literary Archive">
+    <meta property="og:description" content="Explore the rich literary heritage of Ethiopia.">
     <meta property="og:image" content="https://etharchive.github.io/images/og-image.png">
-    
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://etharchive.github.io/">
-    <meta property="twitter:title" content="Ethiopian Literary Archive | Discover Ethiopian Authors & Books">
-    <meta property="twitter:description" content="Explore the rich literary heritage of Ethiopia. Discover celebrated Ethiopian authors, their books, and literary works.">
-    <meta property="twitter:image" content="https://etharchive.github.io/images/og-image.png">
-    
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://etharchive.github.io/">
-    
-    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    
-    <!-- Fonts and Styles -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Syne+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    
-    <!-- JSON-LD Structured Data for Organization -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Collection",
-      "name": "Ethiopian Literary Archive",
-      "description": "A digital collection celebrating Ethiopian writers and their literary works",
-      "url": "https://etharchive.github.io",
-      "creator": {
-        "@type": "Organization",
-        "name": "Ethiopian Literary Archive"
-      },
-      "about": {
-        "@type": "Thing",
-        "name": "Ethiopian Literature"
-      }
-    }
-    </script>
 </head>
 <body>
-    <div class="page-wrapper">
-        <header>
-            <h1>Ethiopian Literary Archive</h1>
-            <p class="subtitle">Preserving voices from the Horn of Africa</p>
-        </header>
 
+<nav class="site-nav">
+    <a href="index.html" class="nav-logo">Ethiopian Literary Archive</a>
+    <span class="nav-tagline">Preserving voices from the Horn of Africa</span>
+    <div class="nav-right"></div>
+</nav>
+
+<div class="index-hero">
+    <h1 class="hero-title">Ethiopian<br><em>Literary</em><br>Archive</h1>
+    <div class="hero-right">
+        <p class="hero-desc">A living record of Ethiopian literature — from Amharic classics to the contemporary diaspora.</p>
         <div class="search-section">
             <div class="search-wrapper">
-                <input type="text" id="searchInput" placeholder="Search authors..." class="search-input" aria-label="Search authors">
-                <button id="clearSearchBtn" class="clear-search-btn" style="display: none;" aria-label="Clear search">
+                <input type="text" id="searchInput" placeholder="Search authors…" class="search-input" aria-label="Search authors">
+                <button id="clearSearchBtn" class="clear-search-btn" style="display:none;" aria-label="Clear search">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
         </div>
-
-        <div class="authors-grid" id="authorsGrid" aria-live="polite" aria-label="Authors grid">
-            <div class="loading">Loading authors...</div>
-        </div>
-
-        <footer>
-            <p>Celebrating Ethiopian authors and their contributions to world literature</p>
-
-            <div class="footer-social">
-                <a href="https://t.me/theyordanos" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Join our Telegram channel">
-                    <i class="fab fa-telegram-plane"></i>
-                    <span>Telegram</span>
-                </a>
-                <a href="mailto:yordanoszt15@gmail.com" class="social-link" aria-label="Send us an email">
-                    <i class="fas fa-envelope"></i>
-                    <span>Email</span>
-                </a>
-                <a href="tel:+251949860385" class="social-link" aria-label="Call us">
-                    <i class="fas fa-phone-alt"></i>
-                    <span>Phone</span>
-                </a>
-                <a href="https://github.com/etharchive/etharchive.github.io" target="_blank" rel="noopener noreferrer" class="social-link github-link" aria-label="Contribute on GitHub">
-                    <i class="fab fa-github"></i>
-                    <span>Contribute on GitHub</span>
-                </a>
-            </div>
-        </footer>
+        <div class="hero-count" id="heroCount">&nbsp;</div>
     </div>
+</div>
 
-    <script src="script.js"></script>
+<div class="authors-grid" id="authorsGrid" aria-live="polite" aria-label="Authors grid">
+    <div class="loading">Loading authors…</div>
+</div>
+
+<footer>
+    <p>Celebrating Ethiopian authors and their contributions to world literature</p>
+    <div class="footer-social">
+        <a href="https://t.me/theyordanos" target="_blank" rel="noopener noreferrer" class="social-link">
+            <i class="fab fa-telegram-plane"></i><span>Telegram</span>
+        </a>
+        <a href="mailto:yordanoszt15@gmail.com" class="social-link">
+            <i class="fas fa-envelope"></i><span>Email</span>
+        </a>
+        <a href="tel:+251949860385" class="social-link">
+            <i class="fas fa-phone-alt"></i><span>Phone</span>
+        </a>
+        <a href="https://github.com/etharchive/etharchive.github.io" target="_blank" rel="noopener noreferrer" class="social-link">
+            <i class="fab fa-github"></i><span>GitHub</span>
+        </a>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const tick = setInterval(() => {
+            const cards = document.querySelectorAll('.author-card');
+            if (cards.length > 0) {
+                document.getElementById('heroCount').textContent = cards.length + ' authors documented';
+                clearInterval(tick);
+            }
+        }, 150);
+    });
+</script>
 </body>
 </html>
