@@ -1835,3 +1835,117 @@ footer>p {
         padding: 1.5rem 20px;
     }
 }
+
+
+/* ── Theme switch + dark palette ─────────────────────────────────── */
+.theme-toggle {
+    position: fixed;
+    z-index: 999;
+    top: 22px;
+    right: max(22px, calc((100vw - 1240px)/2));
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 12px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--ink);
+    font: 500 .78rem 'DM Sans', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .04);
+    transition: background .2s, color .2s, border-color .2s;
+}
+
+.theme-toggle:hover {
+    border-color: var(--mid);
+}
+
+.theme-toggle i {
+    font-size: .8rem;
+}
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+    --white: #171715;
+    --off: #22221f;
+    --paper: #171715;
+    --ink: #eeece6;
+    --mid: #aaa69d;
+    --faint: #77736b;
+    --rule: rgba(238, 236, 230, .14);
+    --accent: #eeece6;
+}
+
+html[data-theme="dark"] body {
+    background: var(--paper);
+    color: var(--ink);
+}
+
+html[data-theme="dark"] .search-wrapper {
+    background: #20201d;
+    border-color: #45443f;
+    box-shadow: none;
+}
+
+html[data-theme="dark"] .search-wrapper:focus-within {
+    border-color: #aaa69d;
+    box-shadow: 0 0 0 4px rgba(238, 236, 230, .06);
+}
+
+html[data-theme="dark"] .search-input {
+    color: var(--ink);
+}
+
+html[data-theme="dark"] .author-card {
+    background: #2a2925;
+}
+
+html[data-theme="dark"] .book-card {
+    background: #1c1c19;
+    border-color: #393833;
+}
+
+html[data-theme="dark"] .book-card:hover {
+    background: #252521;
+    border-color: #55534c;
+}
+
+html[data-theme="dark"] .book-info {
+    border-color: #393833;
+}
+
+html[data-theme="dark"] .featured-book,
+.html[data-theme="dark"] .series-info {
+    background: #22221f;
+    border-color: #45443f;
+}
+
+html[data-theme="dark"] .external-link {
+    background: #22221f;
+    border-color: #393833;
+    color: var(--ink);
+}
+
+html[data-theme="dark"] .social-link:hover {
+    background: #252521;
+    border-color: #45443f;
+}
+
+html[data-theme="dark"] .author-hero-placeholder,
+.html[data-theme="dark"] .book-hero-cover {
+    background: #292824;
+}
+
+html[data-theme="dark"] .theme-toggle {
+    background: #22221f;
+    border-color: #45443f;
+}
+
+@media (max-width: 600px) {
+    .theme-toggle {
+        top: 14px;
+        right: 14px;
+        padding: 8px 10px;
+    }
+}

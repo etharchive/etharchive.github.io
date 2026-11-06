@@ -104,7 +104,7 @@ function displayAuthorDetail(author, allAuthors) {
 
     const featuredBookHTML = featuredBook ? `
         <div class="featured-book">
-            <div class="featured-label"><i class="fas fa-star"></i> Featured Work</div>
+            <div class="featured-label">Featured Work</div>
             <h4>${escapeHtml(featuredBook.title)}</h4>
             <p>${escapeHtml(featuredBook.genre)} · ${featuredBook.year}</p>
             <a href="book.html?slug=${encodeURIComponent(featuredBook.slug)}" class="featured-book-link">
