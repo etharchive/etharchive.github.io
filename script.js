@@ -1,13 +1,120 @@
+const SITE_URL = 'https://ethiopianliteraryarchive.com';
+const SITE_TITLE = 'Ethiopian Literary Archive';
+const DATA_URL = 'data.json';
+const PLACEHOLDER_IMAGE = 'images/placeholder.png';
+const BIO_SNIPPET_LENGTH = 260;
+const RELATED_AUTHORS_COUNT = 4;
+
+const EXTERNAL_LINK_TYPES = [
+    { key: 'wikipedia', icon: 'fab fa-wikipedia-w', label: 'Wikipedia' },
+    { key: 'goodreads', icon: 'fab fa-goodreads-g', label: 'Goodreads' },
+    { key: 'personal', icon: 'fas fa-globe', label: 'Website' }
+];
+
 let authorsData = [];
+
+function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function getUrlParameter(name) {
+    return new URLSearchParams(window.location.search).get(name);
+}
+
+async function fetchData() {
+    const response = await fetch(DATA_URL);
+    if (!response.ok) throw new Error('Failed to load');
+    return response.json();
+}
+
+function formatYears(author, bornLabel) {
+    return author.deathYear
+        ? `${author.birthYear}–${author.deathYear}`
+        : `${bornLabel} ${author.birthYear}`;
+}
+
+function authorUrl(author) {
+    return `author.html?slug=${encodeURIComponent(author.slug)}`;
+}
+
+function bookUrl(book) {
+    return `book.html?slug=${encodeURIComponent(book.slug)}`;
+}
+
+function imageTag(src, alt, fallbackIcon) {
+    return `<img src="${escapeHtml(src || PLACEHOLDER_IMAGE)}" alt="${escapeHtml(alt)}" data-fallback-icon="${fallbackIcon}">`;
+}
+
+function setupImageFallbacks() {
+    document.addEventListener('error', event => {
+        const img = event.target;
+        if (!(img instanceof HTMLImageElement) || !img.dataset.fallbackIcon || !img.parentElement) return;
+        img.parentElement.innerHTML = `<div class="img-placeholder"><i class="fas fa-${img.dataset.fallbackIcon}" aria-hidden="true"></i></div>`;
+    }, true);
+}
+
+function setupBackLink() {
+    const link = document.getElementById('backLink');
+    if (!link) return;
+    link.addEventListener('click', event => {
+        const sameOrigin = document.referrer && new URL(document.referrer).origin === window.location.origin;
+        if (sameOrigin && window.history.length > 1) {
+            event.preventDefault();
+            window.history.back();
+        }
+    });
+}
+
+function breadcrumbHTML(items) {
+    const lastIndex = items.length - 1;
+    const crumbs = items.map((item, index) => index === lastIndex
+        ? `<li aria-current="page">${escapeHtml(item.label)}</li>`
+        : `<li><a href="${item.href}">${escapeHtml(item.label)}</a></li>`
+    ).join('');
+    return `<nav class="breadcrumb" aria-label="Breadcrumb"><ol>${crumbs}</ol></nav>`;
+}
+
+function authorCardHTML(author) {
+    return `<a href="${authorUrl(author)}" class="author-card">
+        <div class="author-image">${imageTag(author.imageUrl, author.name, 'user')}</div>
+        <div class="author-info">
+            <div class="author-name">${escapeHtml(author.name)}</div>
+            <div class="author-years">${formatYears(author, 'b.')}</div>
+        </div>
+    </a>`;
+}
+
+function bookCardHTML(book) {
+    return `<a href="${bookUrl(book)}" class="book-card">
+        <div class="book-image">${imageTag(book.coverUrl, book.title, 'book')}</div>
+        <div class="book-info">
+            <div class="book-title">${escapeHtml(book.title)}</div>
+            <div class="book-year">${book.year}</div>
+            ${book.genre ? `<div class="book-genre">${escapeHtml(book.genre)}</div>` : ''}
+            ${book.series ? `<div class="book-series">${escapeHtml(book.series)}</div>` : ''}
+        </div>
+    </a>`;
+}
+
+function showError(containerId, message) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.innerHTML = `<div class="error-state"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i><p>${escapeHtml(message)}</p><a href="index.html">← Return home</a></div>`;
+}
 
 async function loadAuthors() {
     try {
-        const response = await fetch('data.json');
-        if (!response.ok) throw new Error('Failed to load');
-        const data = await response.json();
+        const data = await fetchData();
         authorsData = data.authors;
         authorsData.sort((a, b) => a.name.localeCompare(b.name));
         displayAuthors(authorsData);
+        document.getElementById('heroCount').textContent = `${authorsData.length} authors documented`;
         setupSearch();
     } catch (error) {
         const grid = document.getElementById('authorsGrid');
@@ -18,320 +125,290 @@ async function loadAuthors() {
 function displayAuthors(authors) {
     const grid = document.getElementById('authorsGrid');
     if (!grid) return;
-    if (authors.length === 0) {
-        grid.innerHTML = '<div class="no-results">No authors found.</div>';
-        return;
-    }
-    grid.innerHTML = authors.map(author => {
-        const yearsText = author.deathYear ? `${author.birthYear}–${author.deathYear}` : `b. ${author.birthYear}`;
-        const imageUrl = author.imageUrl || 'images/placeholder.png';
-        return `<a href="author.html?slug=${encodeURIComponent(author.slug)}" class="author-card">
-            <div class="author-image">
-                <img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(author.name)}"
-                     onerror="this.parentElement.innerHTML='<div class=\\'placeholder-img\\'><i class=\\'fas fa-user\\'></i></div>'">
-            </div>
-            <div class="author-info">
-                <div class="author-name">${escapeHtml(author.name)}</div>
-                <div class="author-years">${yearsText}</div>
-            </div>
-        </a>`;
-    }).join('');
-}
-
-function escapeHtml(str) {
-    if (!str) return '';
-    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+    grid.innerHTML = authors.length === 0
+        ? '<div class="no-results">No authors found.</div>'
+        : authors.map(authorCardHTML).join('');
 }
 
 function setupSearch() {
     const input = document.getElementById('searchInput');
-    const btn = document.getElementById('clearSearchBtn');
+    const clearButton = document.getElementById('clearSearchBtn');
     if (!input) return;
-    input.addEventListener('input', e => {
-        const term = e.target.value.toLowerCase().trim();
-        if (btn) btn.style.display = term ? 'flex' : 'none';
-        displayAuthors(term ? authorsData.filter(a => a.name.toLowerCase().includes(term)) : authorsData);
+
+    input.addEventListener('input', event => {
+        const term = event.target.value.toLowerCase().trim();
+        if (clearButton) clearButton.hidden = !term;
+        displayAuthors(term ? authorsData.filter(author => author.name.toLowerCase().includes(term)) : authorsData);
     });
-    if (btn) btn.addEventListener('click', () => {
-        input.value = ''; displayAuthors(authorsData);
-        btn.style.display = 'none'; input.focus();
-    });
+
+    if (clearButton) {
+        clearButton.addEventListener('click', () => {
+            input.value = '';
+            displayAuthors(authorsData);
+            clearButton.hidden = true;
+            input.focus();
+        });
+    }
 }
 
-document.addEventListener('DOMContentLoaded', loadAuthors);
-
-function getUrlParameter(name) {
-    return new URLSearchParams(window.location.search).get(name);
+function externalLinksHTML(links) {
+    const available = links ? EXTERNAL_LINK_TYPES.filter(type => links[type.key]) : [];
+    if (available.length === 0) return '';
+    return `<div class="external-links">
+        <h3 class="eyebrow">Learn more</h3>
+        ${available.map(type => `<a href="${escapeHtml(links[type.key])}" target="_blank" rel="noopener noreferrer" class="pill"><i class="${type.icon}" aria-hidden="true"></i>${type.label}</a>`).join('')}
+    </div>`;
 }
 
-/* ── AUTHOR DETAIL ── */
+function featuredBookHTML(book) {
+    if (!book) return '';
+    const meta = [escapeHtml(book.genre), book.year].filter(Boolean).join(' · ');
+    return `<a href="${bookUrl(book)}" class="featured-book">
+        <div class="featured-cover">${imageTag(book.coverUrl, book.title, 'book')}</div>
+        <div class="featured-body">
+            <div class="eyebrow">Featured work</div>
+            <h3 class="featured-title">${escapeHtml(book.title)}</h3>
+            <p class="featured-meta">${meta}</p>
+            <p class="featured-desc">${escapeHtml(book.description)}</p>
+            <span class="text-link">Explore this book<i class="fas fa-arrow-right arrow" aria-hidden="true"></i></span>
+        </div>
+    </a>`;
+}
 
 async function loadAuthorDetail() {
     const slug = getUrlParameter('slug');
-    if (!slug) { showError('No author specified'); return; }
+    if (!slug) { showError('authorContent', 'No author specified'); return; }
     try {
-        const data = await fetch('data.json').then(r => r.json());
+        const data = await fetchData();
         const author = data.authors.find(a => a.slug === slug);
-        if (!author) { showError('Author not found'); return; }
+        if (!author) { showError('authorContent', 'Author not found'); return; }
         displayAuthorDetail(author, data.authors);
-    } catch (e) { showError('Unable to load. Please try again.'); }
+    } catch (error) {
+        showError('authorContent', 'Unable to load. Please try again.');
+    }
 }
 
 function displayAuthorDetail(author, allAuthors) {
-    updatePageMetadata(author.name, `${author.name} — Ethiopian author. ${author.bio.substring(0,160)}`,
-        `https://ethiopianliteraryarchive.com/author.html?slug=${author.slug}`, author.imageUrl || 'images/placeholder.png', 'profile');
-    addAuthorStructuredData(author, author.books);
+    const books = author.books || [];
+
+    updatePageMetadata(
+        author.name,
+        `${author.name} — Ethiopian author. ${author.bio.substring(0, 160)}`,
+        `${SITE_URL}/author.html?slug=${author.slug}`,
+        author.imageUrl || PLACEHOLDER_IMAGE,
+        'profile'
+    );
+    addAuthorStructuredData(author, books);
 
     const container = document.getElementById('authorContent');
     if (!container) return;
 
-    const yearsText = author.deathYear ? `${author.birthYear}–${author.deathYear}` : `Born ${author.birthYear}`;
-    const bookCount = author.books ? author.books.length : 0;
-    const bookCountText = bookCount === 1 ? '1 book' : `${bookCount} books`;
-    const sortedBooks = [...author.books].sort((a, b) => a.title.localeCompare(b.title));
-    const featuredBook = author.books.find(b => b.id === author.featuredBook);
-    const relatedAuthors = allAuthors.filter(a => a.id !== author.id).sort(() => 0.5 - Math.random()).slice(0, 4);
-
-    const externalLinksHTML = author.externalLinks && Object.keys(author.externalLinks).length > 0 ? `
-        <div class="external-links">
-            <h3>Learn More</h3>
-            <div class="links-container">
-                ${author.externalLinks.wikipedia ? `<a href="${author.externalLinks.wikipedia}" target="_blank" rel="noopener noreferrer" class="external-link"><i class="fab fa-wikipedia-w"></i> Wikipedia</a>` : ''}
-                ${author.externalLinks.goodreads ? `<a href="${author.externalLinks.goodreads}" target="_blank" rel="noopener noreferrer" class="external-link"><i class="fab fa-goodreads-g"></i> Goodreads</a>` : ''}
-                ${author.externalLinks.personal ? `<a href="${author.externalLinks.personal}" target="_blank" rel="noopener noreferrer" class="external-link"><i class="fas fa-globe"></i> Website</a>` : ''}
-            </div>
-        </div>` : '';
-
-    const featuredBookHTML = featuredBook ? `
-        <div class="featured-book">
-            <div class="featured-label">Featured Work</div>
-            <h4>${escapeHtml(featuredBook.title)}</h4>
-            <p>${escapeHtml(featuredBook.genre)} · ${featuredBook.year}</p>
-            <a href="book.html?slug=${encodeURIComponent(featuredBook.slug)}" class="featured-book-link">
-                Explore this book <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>` : '';
+    const sortedBooks = [...books].sort((a, b) => a.title.localeCompare(b.title));
+    const featuredBook = books.find(b => b.id === author.featuredBook);
+    const relatedAuthors = allAuthors
+        .filter(a => a.id !== author.id)
+        .sort(() => 0.5 - Math.random())
+        .slice(0, RELATED_AUTHORS_COUNT);
+    const bookCountText = books.length === 1 ? '1 book' : `${books.length} books`;
 
     container.innerHTML = `<div class="author-detail">
+        ${breadcrumbHTML([{ label: 'Home', href: 'index.html' }, { label: author.name }])}
 
-        <div class="author-hero">
-            <img src="${author.imageUrl || 'images/placeholder.png'}" alt="${escapeHtml(author.name)}"
-                 onerror="this.parentElement.innerHTML='<div class=\\'author-hero-placeholder\\'><i class=\\'fas fa-user\\'></i></div>'">
-            <div class="author-hero-overlay"></div>
+        <section class="author-hero">
+            <div class="author-hero-media">${imageTag(author.imageUrl, author.name, 'user')}</div>
             <div class="author-hero-title">
                 <h1 class="author-hero-name">${escapeHtml(author.name)}</h1>
                 <div class="author-hero-chips">
-                    <span class="author-chip">${yearsText}</span>
+                    <span class="author-chip">${formatYears(author, 'Born')}</span>
                     <span class="author-chip">${bookCountText}</span>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="author-body">
-            <aside class="author-sidebar">
-                <div class="breadcrumb" style="margin-bottom:2rem">
-                    <a href="index.html">Home</a>
-                    <span class="separator">/</span>
-                    <span class="current">${escapeHtml(author.name)}</span>
-                </div>
-                <div class="sidebar-label">Years</div>
-                <div class="sidebar-value">${yearsText}</div>
-                <div class="sidebar-label">Books</div>
-                <div class="sidebar-value">${bookCountText}</div>
-                ${externalLinksHTML}
-            </aside>
-            <main class="author-main">
+        <section class="author-about${featuredBook ? ' has-featured' : ''}">
+            <div class="author-about-text">
                 <p class="author-bio">${escapeHtml(author.bio)}</p>
-                ${featuredBookHTML}
-            </main>
-        </div>
-
-        <div class="books-section">
-            <div class="section-header"><h2>Books by ${escapeHtml(author.name)}</h2></div>
-            <div class="books-grid">
-                ${sortedBooks.map(book => `
-                    <a href="book.html?slug=${encodeURIComponent(book.slug)}" class="book-card">
-                        <div class="book-image">
-                            <img src="${book.coverUrl || 'images/placeholder.png'}" alt="${escapeHtml(book.title)}"
-                                 onerror="this.parentElement.innerHTML='<div class=\\'book-placeholder\\'><i class=\\'fas fa-book\\'></i></div>'">
-                        </div>
-                        <div class="book-info">
-                            <div class="book-title">${escapeHtml(book.title)}</div>
-                            <div class="book-year">${book.year}</div>
-                            ${book.genre ? `<div class="book-genre">${escapeHtml(book.genre)}</div>` : ''}
-                            ${book.series ? `<div class="book-series">${escapeHtml(book.series)}</div>` : ''}
-                        </div>
-                    </a>`).join('')}
+                ${externalLinksHTML(author.externalLinks)}
             </div>
-        </div>
+            ${featuredBookHTML(featuredBook)}
+        </section>
+
+        <section class="section">
+            <h2 class="eyebrow section-title">Books by ${escapeHtml(author.name)}</h2>
+            <div class="books-grid">${sortedBooks.map(bookCardHTML).join('')}</div>
+        </section>
 
         ${relatedAuthors.length > 0 ? `
-        <div class="related-authors-section">
-            <h2>More Authors</h2>
-            <div class="related-authors-grid">
-                ${relatedAuthors.map(r => {
-                    const ry = r.deathYear ? `${r.birthYear}–${r.deathYear}` : `b. ${r.birthYear}`;
-                    return `<a href="author.html?slug=${encodeURIComponent(r.slug)}" class="related-author-card">
-                        <div class="related-author-image">
-                            <img src="${r.imageUrl || 'images/placeholder.png'}" alt="${escapeHtml(r.name)}"
-                                 onerror="this.parentElement.innerHTML='<div class=\\'related-author-placeholder\\'><i class=\\'fas fa-user\\'></i></div>'">
-                        </div>
-                        <div class="related-author-info">
-                            <div class="related-author-name">${escapeHtml(r.name)}</div>
-                            <div class="related-author-years">${ry}</div>
-                        </div>
-                    </a>`;
-                }).join('')}
-            </div>
-        </div>` : ''}
-
+        <section class="section">
+            <h2 class="eyebrow section-title">More authors</h2>
+            <div class="authors-grid">${relatedAuthors.map(authorCardHTML).join('')}</div>
+        </section>` : ''}
     </div>`;
 }
 
-function showError(message) {
-    const c = document.getElementById('authorContent');
-    if (c) c.innerHTML = `<div class="error-state"><i class="fas fa-exclamation-triangle"></i><p>${escapeHtml(message)}</p><a href="index.html">← Return home</a></div>`;
-}
-
-if (window.location.pathname.includes('author.html')) document.addEventListener('DOMContentLoaded', loadAuthorDetail);
-
-/* ── BOOK DETAIL ── */
-
 async function loadBookDetail() {
     const slug = getUrlParameter('slug');
-    if (!slug) { showBookError('No book specified'); return; }
+    if (!slug) { showError('bookContent', 'No book specified'); return; }
     try {
-        const data = await fetch('data.json').then(r => r.json());
-        let foundAuthor = null, foundBook = null;
+        const data = await fetchData();
+        let foundAuthor = null;
+        let foundBook = null;
         for (const author of data.authors) {
             const book = author.books.find(b => b.slug === slug);
-            if (book) { foundAuthor = author; foundBook = book; break; }
+            if (book) {
+                foundAuthor = author;
+                foundBook = book;
+                break;
+            }
         }
-        if (!foundBook) { showBookError('Book not found'); return; }
-        displayBookDetail(foundBook, foundAuthor, data.authors);
-    } catch (e) { showBookError('Unable to load. Please try again.'); }
+        if (!foundBook) { showError('bookContent', 'Book not found'); return; }
+        displayBookDetail(foundBook, foundAuthor);
+    } catch (error) {
+        showError('bookContent', 'Unable to load. Please try again.');
+    }
 }
 
-function displayBookDetail(book, author, allAuthors) {
-    updatePageMetadata(book.title, `${book.title} by ${author.name}. ${book.description.substring(0,160)}`,
-        `https://ethiopianliteraryarchive.com/book.html?slug=${book.slug}`, book.coverUrl || 'images/placeholder.png', 'book');
+function displayBookDetail(book, author) {
+    updatePageMetadata(
+        book.title,
+        `${book.title} by ${author.name}. ${book.description.substring(0, 160)}`,
+        `${SITE_URL}/book.html?slug=${book.slug}`,
+        book.coverUrl || PLACEHOLDER_IMAGE,
+        'book'
+    );
     addBookStructuredData(book, author);
+
+    const backLink = document.getElementById('backLink');
+    if (backLink) backLink.href = authorUrl(author);
 
     const container = document.getElementById('bookContent');
     if (!container) return;
 
-    const otherBooks = author.books.filter(b => b.id !== book.id).sort((a, b) => a.title.localeCompare(b.title));
-    const seriesBooks = book.series ? author.books.filter(b => b.series === book.series && b.id !== book.id) : [];
+    const otherBooks = author.books
+        .filter(b => b.id !== book.id)
+        .sort((a, b) => a.title.localeCompare(b.title));
+    const seriesBooks = book.series
+        ? author.books.filter(b => b.series === book.series && b.id !== book.id)
+        : [];
+    const stats = [
+        { label: 'Published', value: book.year },
+        { label: 'Pages', value: book.pages },
+        { label: 'Publisher', value: escapeHtml(book.publisher) }
+    ];
+    const bioSnippet = escapeHtml(author.bio.substring(0, BIO_SNIPPET_LENGTH)) + (author.bio.length > BIO_SNIPPET_LENGTH ? '…' : '');
 
     container.innerHTML = `<div class="book-detail">
+        ${breadcrumbHTML([
+            { label: 'Home', href: 'index.html' },
+            { label: author.name, href: authorUrl(author) },
+            { label: book.title }
+        ])}
 
-        <div class="book-hero">
-            <div class="book-hero-cover">
-                <img src="${book.coverUrl || 'images/placeholder.png'}" alt="${escapeHtml(book.title)}"
-                     onerror="this.parentElement.innerHTML='<div class=\\'cover-placeholder\\'><i class=\\'fas fa-book\\'></i></div>'">
-            </div>
+        <section class="book-hero">
+            <div class="book-hero-cover">${imageTag(book.coverUrl, book.title, 'book')}</div>
             <div class="book-hero-info">
-                <div class="book-hero-genre">${escapeHtml(book.genre)}</div>
+                ${book.genre ? `<div class="eyebrow">${escapeHtml(book.genre)}</div>` : ''}
                 <h1 class="book-title-large">${escapeHtml(book.title)}</h1>
-                <a href="author.html?slug=${encodeURIComponent(author.slug)}" class="book-author-link">
-                    <i class="fas fa-user"></i> ${escapeHtml(author.name)}
+                <a href="${authorUrl(author)}" class="text-link book-author-link">
+                    <i class="fas fa-user" aria-hidden="true"></i>${escapeHtml(author.name)}
                 </a>
-                ${book.series ? `<div class="book-series-large"><i class="fas fa-layer-group"></i> ${escapeHtml(book.series)}</div>` : ''}
+                ${book.series ? `<div class="book-series-large"><i class="fas fa-layer-group" aria-hidden="true"></i>${escapeHtml(book.series)}</div>` : ''}
                 <div class="book-hero-stats">
-                    <div class="book-stat"><span class="book-stat-label">Published</span><span class="book-stat-value">${book.year}</span></div>
-                    <div class="book-stat"><span class="book-stat-label">Pages</span><span class="book-stat-value">${book.pages}</span></div>
-                    <div class="book-stat"><span class="book-stat-label">Publisher</span><span class="book-stat-value">${escapeHtml(book.publisher)}</span></div>
-                    <div class="book-stat"><span class="book-stat-label">Genre</span><span class="book-stat-value">${escapeHtml(book.genre)}</span></div>
+                    ${stats.map(stat => `<div class="book-stat"><span class="book-stat-label">${stat.label}</span><span class="book-stat-value">${stat.value}</span></div>`).join('')}
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="book-body">
+        <section class="book-body">
             <div class="book-main">
-                <div class="breadcrumb" style="margin-bottom:1.5rem">
-                    <a href="index.html">Home</a>
-                    <span class="separator">/</span>
-                    <a href="author.html?slug=${encodeURIComponent(author.slug)}">${escapeHtml(author.name)}</a>
-                    <span class="separator">/</span>
-                    <span class="current">${escapeHtml(book.title)}</span>
-                </div>
-                <div class="book-description-label">About this book</div>
-                <div class="book-description">${escapeHtml(book.description)}</div>
-                ${seriesBooks.length > 0 ? `
-                    <div class="series-info" style="margin-top:2rem">
-                        <p>Part of the <strong>${escapeHtml(book.series)}</strong> series</p>
-                        <a href="#other-books" class="series-books-link"
-                           onclick="document.querySelector('.other-books-section').scrollIntoView({behavior:'smooth'});return false;">
-                            ${seriesBooks.length} more in series <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>` : ''}
+                <h2 class="eyebrow">About this book</h2>
+                <p class="book-description">${escapeHtml(book.description)}</p>
+                ${seriesBooks.length > 0 ? `<a href="#other-books" class="text-link series-link">${seriesBooks.length} more in this series<i class="fas fa-arrow-right arrow" aria-hidden="true"></i></a>` : ''}
             </div>
             <aside class="book-aside">
-                <div class="author-bio-snippet">
-                    <h3>About ${escapeHtml(author.name)}</h3>
-                    <p>${escapeHtml(author.bio.substring(0, 260))}${author.bio.length > 260 ? '…' : ''}</p>
-                    <a href="author.html?slug=${encodeURIComponent(author.slug)}" class="read-more-link">
-                        Full profile <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
+                <h2 class="eyebrow">About the author</h2>
+                <p class="author-bio-snippet">${bioSnippet}</p>
+                <a href="${authorUrl(author)}" class="text-link">Full profile<i class="fas fa-arrow-right arrow" aria-hidden="true"></i></a>
             </aside>
-        </div>
+        </section>
 
         ${otherBooks.length > 0 ? `
-        <div class="other-books-section" id="other-books">
-            <h2>More by ${escapeHtml(author.name)}</h2>
-            <div class="other-books-grid">
-                ${otherBooks.map(b => `
-                    <a href="book.html?slug=${encodeURIComponent(b.slug)}" class="book-card">
-                        <div class="book-image">
-                            <img src="${b.coverUrl || 'images/placeholder.png'}" alt="${escapeHtml(b.title)}"
-                                 onerror="this.parentElement.innerHTML='<div class=\\'book-placeholder\\'><i class=\\'fas fa-book\\'></i></div>'">
-                        </div>
-                        <div class="book-info">
-                            <div class="book-title">${escapeHtml(b.title)}</div>
-                            <div class="book-year">${b.year}</div>
-                            ${b.genre ? `<div class="book-genre">${escapeHtml(b.genre)}</div>` : ''}
-                            ${b.series ? `<div class="book-series">${escapeHtml(b.series)}</div>` : ''}
-                        </div>
-                    </a>`).join('')}
-            </div>
-        </div>` : ''}
-
+        <section class="section other-books-section" id="other-books">
+            <h2 class="eyebrow section-title">More by ${escapeHtml(author.name)}</h2>
+            <div class="books-grid">${otherBooks.map(bookCardHTML).join('')}</div>
+        </section>` : ''}
     </div>`;
+
+    const seriesLink = container.querySelector('.series-link');
+    const otherBooksSection = container.querySelector('.other-books-section');
+    if (seriesLink && otherBooksSection) {
+        seriesLink.addEventListener('click', event => {
+            event.preventDefault();
+            otherBooksSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
 }
 
-function showBookError(message) {
-    const c = document.getElementById('bookContent');
-    if (c) c.innerHTML = `<div class="error-state"><i class="fas fa-exclamation-triangle"></i><p>${escapeHtml(message)}</p><a href="index.html">← Return home</a></div>`;
+function updatePageMetadata(title, description, url, image, type) {
+    const fullTitle = `${SITE_TITLE} | ${title}`;
+    const setAttribute = (selector, attribute, value) => {
+        const element = document.querySelector(selector);
+        if (element) element.setAttribute(attribute, value);
+    };
+    document.title = fullTitle;
+    setAttribute('meta[name="description"]', 'content', description);
+    setAttribute('meta[property="og:title"]', 'content', fullTitle);
+    setAttribute('meta[property="og:description"]', 'content', description);
+    if (url) setAttribute('meta[property="og:url"]', 'content', url);
+    if (type) setAttribute('meta[property="og:type"]', 'content', type);
+    if (url) setAttribute('link[rel="canonical"]', 'href', url);
 }
 
-if (window.location.pathname.includes('book.html')) document.addEventListener('DOMContentLoaded', loadBookDetail);
-
-/* ── SEO ── */
-function updatePageMetadata(title, desc, url, img, type) {
-    document.title = `Ethiopian Literary Archive | ${title}`;
-    const s = (sel, attr, val) => { const el = document.querySelector(sel); if (el) el.setAttribute(attr, val); };
-    s('meta[name="description"]','content',desc);
-    s('meta[property="og:title"]','content',`Ethiopian Literary Archive | ${title}`);
-    s('meta[property="og:description"]','content',desc);
-    if (url) s('meta[property="og:url"]','content',url);
-    if (type) s('meta[property="og:type"]','content',type);
-    if (url) s('link[rel="canonical"]','href',url);
+function appendStructuredData(data) {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(data, null, 2);
+    document.head.appendChild(script);
 }
+
 function addAuthorStructuredData(author, books) {
-    const s = document.createElement('script'); s.type = 'application/ld+json';
-    const d = {"@context":"https://schema.org","@type":"Person","name":author.name,
-        "birthDate":author.birthYear?.toString(),"deathDate":author.deathYear?.toString(),
-        "description":author.bio,"works":books.map(b=>({
-            "@type":"Book","name":b.title,"datePublished":b.year.toString(),"numberOfPages":b.pages,"genre":b.genre}))};
-    Object.keys(d).forEach(k=>d[k]===undefined&&delete d[k]);
-    s.textContent = JSON.stringify(d,null,2); document.head.appendChild(s);
+    const data = {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: author.name,
+        birthDate: author.birthYear?.toString(),
+        deathDate: author.deathYear?.toString(),
+        description: author.bio,
+        works: books.map(book => ({
+            '@type': 'Book',
+            name: book.title,
+            datePublished: book.year.toString(),
+            numberOfPages: book.pages,
+            genre: book.genre
+        }))
+    };
+    Object.keys(data).forEach(key => data[key] === undefined && delete data[key]);
+    appendStructuredData(data);
 }
+
 function addBookStructuredData(book, author) {
-    const s = document.createElement('script'); s.type = 'application/ld+json';
-    s.textContent = JSON.stringify({"@context":"https://schema.org","@type":"Book","name":book.title,
-        "author":{"@type":"Person","name":author.name},"datePublished":book.year.toString(),
-        "numberOfPages":book.pages,"genre":book.genre,"publisher":{"@type":"Organization","name":book.publisher},
-        "description":book.description},null,2);
-    document.head.appendChild(s);
+    appendStructuredData({
+        '@context': 'https://schema.org',
+        '@type': 'Book',
+        name: book.title,
+        author: { '@type': 'Person', name: author.name },
+        datePublished: book.year.toString(),
+        numberOfPages: book.pages,
+        genre: book.genre,
+        publisher: { '@type': 'Organization', name: book.publisher },
+        description: book.description
+    });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    setupImageFallbacks();
+    setupBackLink();
+    if (document.getElementById('authorsGrid')) loadAuthors();
+    if (document.getElementById('authorContent')) loadAuthorDetail();
+    if (document.getElementById('bookContent')) loadBookDetail();
+});

@@ -1,78 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethiopian Literary Archive | Discover Ethiopian Authors & Books</title>
-    <meta name="description" content="Explore the rich literary heritage of Ethiopia. Discover celebrated Ethiopian authors, their books, and literary works.">
-    <meta name="keywords" content="Ethiopian authors, Ethiopian books, Ethiopian literature, Ethiopian writers, African literature, Amharic books">
-    <meta name="author" content="Ethiopian Literary Archive">
-    <meta name="robots" content="index, follow">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://etharchive.github.io/">
-    <meta property="og:title" content="Ethiopian Literary Archive">
-    <meta property="og:description" content="Explore the rich literary heritage of Ethiopia.">
-    <meta property="og:image" content="https://etharchive.github.io/images/og-image.png">
-    <meta property="twitter:card" content="summary_large_image">
-    <link rel="canonical" href="https://etharchive.github.io/">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Syne+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="theme.js"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
 
-<div class="index-hero">
-    <h1 class="hero-title">Ethiopian<br><em>Literary</em><br>Archive</h1>
-    <div class="hero-right">
-        <p class="hero-desc">A living record of Ethiopian literature — from Amharic classics to the contemporary diaspora.</p>
-        <div class="search-section">
-            <div class="search-wrapper">
-                <input type="text" id="searchInput" placeholder="Search authors…" class="search-input" aria-label="Search authors">
-                <button id="clearSearchBtn" class="clear-search-btn" style="display:none;" aria-label="Clear search">
-                    <i class="fas fa-times"></i>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ethiopian Literary Archive | Discover Ethiopian Authors & Books</title>
+        <meta name="description" content="Explore the rich literary heritage of Ethiopia. Discover celebrated Ethiopian authors, their books, and literary works.">
+        <meta name="keywords" content="Ethiopian authors, Ethiopian books, Ethiopian literature, Ethiopian writers, African literature, Amharic books">
+        <meta name="author" content="Ethiopian Literary Archive">
+        <meta name="robots" content="index, follow">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://etharchive.github.io/">
+        <meta property="og:title" content="Ethiopian Literary Archive">
+        <meta property="og:description" content="Explore the rich literary heritage of Ethiopia.">
+        <meta property="og:image" content="https://etharchive.github.io/images/og-image.png">
+        <meta property="twitter:card" content="summary_large_image">
+        <link rel="canonical" href="https://etharchive.github.io/">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Syne+Mono&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <script src="theme.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header class="site-header">
+            <div class="container site-header-inner">
+                <button class="pill theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme">
+                    <span class="theme-option to-dark"><i class="fas fa-moon" aria-hidden="true"></i>Dark</span>
+                    <span class="theme-option to-light"><i class="fas fa-sun" aria-hidden="true"></i>Light</span>
                 </button>
             </div>
-        </div>
-        <div class="hero-count" id="heroCount">&nbsp;</div>
-    </div>
-</div>
+        </header>
+        <main>
+            <section class="index-hero container">
+                <h1 class="hero-title">Ethiopian<br><em>Literary</em><br>Archive</h1>
+                <div class="hero-right">
+                    <p class="hero-desc">A living record of Ethiopian literature — from Amharic classics to the contemporary diaspora.</p>
+                    <div class="search-wrapper">
+                        <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                        <input type="text" id="searchInput" placeholder="Search authors…" class="search-input" aria-label="Search authors">
+                        <button id="clearSearchBtn" class="clear-search-btn" type="button" aria-label="Clear search" hidden>
+                            <i class="fas fa-times" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="hero-count" id="heroCount"></div>
+                </div>
+            </section>
+            <div class="authors-grid container" id="authorsGrid" aria-live="polite" aria-label="Authors grid">
+                <div class="loading">Loading authors…</div>
+            </div>
+        </main>
+        <footer class="container">
+            <div class="footer-inner">
+                <p>Celebrating Ethiopian authors and their contributions to world literature</p>
+                <div class="footer-social">
+                    <a href="https://t.me/theyordanos" target="_blank" rel="noopener noreferrer" class="pill social-link">
+                        <i class="fab fa-telegram-plane" aria-hidden="true"></i><span>Telegram</span>
+                    </a>
+                    <a href="mailto:yordanoszt15@gmail.com" class="pill social-link">
+                        <i class="fas fa-envelope" aria-hidden="true"></i><span>Email</span>
+                    </a>
+                    <a href="tel:+251949860385" class="pill social-link">
+                        <i class="fas fa-phone-alt" aria-hidden="true"></i><span>Phone</span>
+                    </a>
+                    <a href="https://github.com/etharchive/etharchive.github.io" target="_blank" rel="noopener noreferrer" class="pill social-link">
+                        <i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </footer>
+        <script src="script.js"></script>
+    </body>
 
-<div class="authors-grid" id="authorsGrid" aria-live="polite" aria-label="Authors grid">
-    <div class="loading">Loading authors…</div>
-</div>
-
-<footer>
-    <p>Celebrating Ethiopian authors and their contributions to world literature</p>
-    <div class="footer-social">
-        <a href="https://t.me/theyordanos" target="_blank" rel="noopener noreferrer" class="social-link">
-            <i class="fab fa-telegram-plane"></i><span>Telegram</span>
-        </a>
-        <a href="mailto:yordanoszt15@gmail.com" class="social-link">
-            <i class="fas fa-envelope"></i><span>Email</span>
-        </a>
-        <a href="tel:+251949860385" class="social-link">
-            <i class="fas fa-phone-alt"></i><span>Phone</span>
-        </a>
-        <a href="https://github.com/etharchive/etharchive.github.io" target="_blank" rel="noopener noreferrer" class="social-link">
-            <i class="fab fa-github"></i><span>GitHub</span>
-        </a>
-    </div>
-</footer>
-
-<script src="script.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const tick = setInterval(() => {
-            const cards = document.querySelectorAll('.author-card');
-            if (cards.length > 0) {
-                document.getElementById('heroCount').textContent = cards.length + ' authors documented';
-                clearInterval(tick);
-            }
-        }, 150);
-    });
-</script>
-</body>
 </html>

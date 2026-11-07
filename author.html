@@ -1,49 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethiopian Literary Archive | Author</title>
-    <meta name="description" content="Discover Ethiopian authors and their literary works.">
-    <meta name="robots" content="index, follow">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Ethiopian Literary Archive | Author">
-    <meta property="og:image" content="https://etharchive.github.io/images/og-image.png">
-    <link rel="canonical" href="https://etharchive.github.io/author.html">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Syne+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="theme.js"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
 
-<div id="authorContent" class="author-content" aria-live="polite">
-    <div class="loading-state">
-        <div class="loading-spinner"></div>
-        <span>Loading…</span>
-    </div>
-</div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ethiopian Literary Archive | Author</title>
+        <meta name="description" content="Discover Ethiopian authors and their literary works.">
+        <meta name="robots" content="index, follow">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Ethiopian Literary Archive | Author">
+        <meta property="og:image" content="https://etharchive.github.io/images/og-image.png">
+        <link rel="canonical" href="https://etharchive.github.io/author.html">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Syne+Mono&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <script src="theme.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
 
-<footer>
-    <p>Celebrating Ethiopian authors and their contributions to world literature</p>
-    <div class="footer-social">
-        <a href="https://t.me/theyordanos" target="_blank" rel="noopener noreferrer" class="social-link">
-            <i class="fab fa-telegram-plane"></i><span>Telegram</span>
-        </a>
-        <a href="mailto:yordanoszt15@gmail.com" class="social-link">
-            <i class="fas fa-envelope"></i><span>Email</span>
-        </a>
-        <a href="tel:+251949860385" class="social-link">
-            <i class="fas fa-phone-alt"></i><span>Phone</span>
-        </a>
-        <a href="https://github.com/etharchive/etharchive.github.io" target="_blank" rel="noopener noreferrer" class="social-link">
-            <i class="fab fa-github"></i><span>GitHub</span>
-        </a>
-    </div>
-</footer>
+    <body>
+        <header class="site-header">
+            <div class="container site-header-inner">
+                <a href="index.html" class="pill back-link" id="backLink"><i class="fas fa-arrow-left" aria-hidden="true"></i>Back</a>
+                <button class="pill theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme">
+                    <span class="theme-option to-dark"><i class="fas fa-moon" aria-hidden="true"></i>Dark</span>
+                    <span class="theme-option to-light"><i class="fas fa-sun" aria-hidden="true"></i>Light</span>
+                </button>
+            </div>
+        </header>
+        <main id="authorContent" class="author-content container" aria-live="polite">
+            <div class="loading-state">
+                <div class="loading-spinner"></div>
+                <span>Loading…</span>
+            </div>
+        </main>
+        <footer class="container">
+            <div class="footer-inner">
+                <p>Celebrating Ethiopian authors and their contributions to world literature</p>
+                <div class="footer-social">
+                    <a href="https://t.me/theyordanos" target="_blank" rel="noopener noreferrer" class="pill social-link">
+                        <i class="fab fa-telegram-plane" aria-hidden="true"></i><span>Telegram</span>
+                    </a>
+                    <a href="mailto:yordanoszt15@gmail.com" class="pill social-link">
+                        <i class="fas fa-envelope" aria-hidden="true"></i><span>Email</span>
+                    </a>
+                    <a href="tel:+251949860385" class="pill social-link">
+                        <i class="fas fa-phone-alt" aria-hidden="true"></i><span>Phone</span>
+                    </a>
+                    <a href="https://github.com/etharchive/etharchive.github.io" target="_blank" rel="noopener noreferrer" class="pill social-link">
+                        <i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </footer>
+        <script src="script.js"></script>
+    </body>
 
-<script src="script.js"></script>
-</body>
 </html>
