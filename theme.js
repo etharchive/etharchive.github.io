@@ -34,6 +34,14 @@
     const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     setTheme(readStoredTheme() || (prefersDark ? 'dark' : 'light'));
 
+    function syncTheme() {
+        setTheme(readStoredTheme() || (prefersDark ? 'dark' : 'light'));
+    }
+    window.addEventListener('pageshow', syncTheme);
+    window.addEventListener('storage', function(event) {
+        if (event.key === STORAGE_KEY) syncTheme();
+    });
+
     document.addEventListener('DOMContentLoaded', function () {
         const button = document.getElementById('themeToggle');
         if (!button) return;
